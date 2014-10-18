@@ -6,23 +6,39 @@
 package pl.rj.hikingemergency.view;
 
 import pl.rj.hikingemergency.*;
+import pl.rj.hikingemergency.logger.Logger;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements ActionListener {
 
+    private MapArea mapArea;
+
+    private JButton upButton;
+    private JButton downButton;
+    private JButton leftButton;
+    private JButton rightButton;
+    private JButton zoomInButton;
+    private JButton zoomOutButton;
+
+    private JPanel contentPane;
+
+    private Logger logger;
+
+    
+    
     /**
      * @throws HeadlessException
      */
@@ -31,8 +47,8 @@ public class MainWindow extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(700, 500);
-        this.setLocationRelativeTo(null);
         
+
         try {
             String imageUrl = "https://maps.googleapis.com/maps/api/staticmap?center=40,26&zoom=10&size=600x300";
             String destinationFile = "image.jpg";
@@ -99,5 +115,10 @@ public static void main(String[] args) {
                 ex.setVisible(true);
             }
         });
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
