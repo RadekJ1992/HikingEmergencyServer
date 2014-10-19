@@ -5,13 +5,11 @@
  */
 package pl.rj.hikingemergency.maputils;
 
-import pl.rj.hikingemergency.maputils.*;
-
 public class GoogleStaticMapsURL {
     
     private StringBuilder URLBuilder;
     
-    public GoogleStaticMapsURL(float Latitude, float Longitude) {
+    public GoogleStaticMapsURL(double Latitude, double Longitude) {
         URLBuilder = new StringBuilder(MapUtils.GOOGLE_STATIC_MAPS_URL);
         URLBuilder.append(Latitude);
         URLBuilder.append(",");
@@ -26,7 +24,7 @@ public class GoogleStaticMapsURL {
     public void setSize(int x, int y) {
         URLBuilder.append(MapUtils.SIZE);
         URLBuilder.append(x);
-        URLBuilder.append(",");
+        URLBuilder.append("x");
         URLBuilder.append(y);
     }
     

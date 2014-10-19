@@ -6,19 +6,14 @@
 package pl.rj.hikingemergency.view;
 
 import pl.rj.hikingemergency.*;
-import pl.rj.hikingemergency.logger.Logger;
+import pl.rj.hikingemergency.maputils.GoogleStaticMapsURL;
+import pl.rj.hikingemergency.model.Log;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
 
 import javax.swing.*;
 
@@ -35,7 +30,7 @@ public class MainWindow extends JFrame implements ActionListener {
 
     private JPanel contentPane;
 
-    private Logger logger;
+    private GoogleStaticMapsURL url;
 
     
     
@@ -44,39 +39,79 @@ public class MainWindow extends JFrame implements ActionListener {
      */
     public MainWindow() throws HeadlessException {
         setTitle(Constants.APPLICATION_NAME);
-        setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(700, 500);
-        
 
-        try {
-            String imageUrl = "https://maps.googleapis.com/maps/api/staticmap?center=40,26&zoom=10&size=600x300";
-            String destinationFile = "image.jpg";
-            String str = destinationFile;
-            URL url = new URL(imageUrl);
-            InputStream is = url.openStream();
-            OutputStream os = new FileOutputStream(destinationFile);
 
-            byte[] b = new byte[2048];
-            int length;
+        contentPane = new JPanel();
+        contentPane.setLayout(null);
 
-            while ((length = is.read(b)) != -1) {
-                os.write(b, 0, length);
+        this.setResizable(false);
+
+        //dodanie window listenera
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                //przy wylaczeniu aplikacji zapisanie logu do pliku
+                Log.getInstance().saveLogToFile();
+                System.exit(0);
             }
+        });
 
-            is.close();
-            os.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
+        mapArea = new MapArea(Constants.DEFAULT_LATITUDE, Constants.DEFAULT_LONGITUDE, Constants.DEFAULT_ZOOM_LVL);
+        mapArea.setSize(Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
+        mapArea.setBounds(0 ,0, Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
+        mapArea.setVisible(true);
+        mapArea.refresh();
+        contentPane.add(mapArea);
 
-        this.add(new JLabel(new ImageIcon((new ImageIcon("image.jpg")).getImage().getScaledInstance(630, 450,
-                java.awt.Image.SCALE_SMOOTH))));
+        //tworzenie przyciskow
+        upButton = new JButton("^");
+        upButton.setActionCommand(Constants.MOVE_UP_ACTION);
+        upButton.setBounds((15 * Constants.GUI_STEP), Constants.GUI_STEP, Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        upButton.setVisible(true);
+        upButton.addActionListener(this);
+        contentPane.add(upButton);
 
-        this.setVisible(true);
+        downButton = new JButton("v");
+        downButton.setActionCommand(Constants.MOVE_DOWN_ACTION);
+        downButton.setBounds( 15*Constants.GUI_STEP, 3*Constants.GUI_STEP, Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        downButton.setVisible(true);
+        downButton.addActionListener(this);
+        contentPane.add(downButton);
+
+        rightButton = new JButton(">");
+        rightButton.setActionCommand(Constants.MOVE_RIGHT_ACTION);
+        rightButton.setBounds( 16*Constants.GUI_STEP, 2*Constants.GUI_STEP, Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        rightButton.setVisible(true);
+        rightButton.addActionListener(this);
+        contentPane.add(rightButton);
+
+        leftButton = new JButton("<");
+        leftButton.setActionCommand(Constants.MOVE_LEFT_ACTION);
+        leftButton.setBounds(14 * Constants.GUI_STEP, 2 * Constants.GUI_STEP, Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        leftButton.setVisible(true);
+        leftButton.addActionListener(this);
+        contentPane.add(leftButton);
+
+        zoomInButton = new JButton("+");
+        zoomInButton.setActionCommand(Constants.ZOOM_IN_ACTION);
+        zoomInButton.setBounds( 18 * Constants.GUI_STEP, 1*Constants.GUI_STEP, Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        zoomInButton.setVisible(true);
+        zoomInButton.addActionListener(this);
+        contentPane.add(zoomInButton);
+
+        zoomOutButton = new JButton("-");
+        zoomOutButton.setActionCommand(Constants.ZOOM_OUT_ACTION);
+        zoomOutButton.setBounds( 18 * Constants.GUI_STEP, 3*Constants.GUI_STEP, Constants.BUTTON_SIZE, Constants.BUTTON_SIZE);
+        zoomOutButton.setVisible(true);
+        zoomOutButton.addActionListener(this);
+        contentPane.add(zoomOutButton);
+
+        this.setContentPane(contentPane);
         this.pack();
-
+        this.setLocationByPlatform(true);
+        this.setSize(Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
+        this.setVisible(true);
 
     }
 
@@ -119,6 +154,23 @@ public static void main(String[] args) {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getActionCommand().equals(Constants.MOVE_UP_ACTION)) {
+            mapArea.moveUp();
+        }
+        if (e.getActionCommand().equals(Constants.MOVE_DOWN_ACTION)) {
+            mapArea.moveDown();
+        }
+        if (e.getActionCommand().equals(Constants.MOVE_LEFT_ACTION)) {
+            mapArea.moveLeft();
+        }
+        if (e.getActionCommand().equals(Constants.MOVE_RIGHT_ACTION)) {
+            mapArea.moveRight();
+        }
+        if (e.getActionCommand().equals(Constants.ZOOM_IN_ACTION)) {
+            mapArea.zoomIn();
+        }
+        if (e.getActionCommand().equals(Constants.ZOOM_OUT_ACTION)) {
+            mapArea.zoomOut();
+        }
     }
 }
