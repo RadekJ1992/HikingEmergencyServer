@@ -16,12 +16,12 @@ public class Marker {
     
     MapUtils.Colors color;
     MapUtils.Sizes size;
-    Float latitude;
-    Float longitude;
+    Double latitude;
+    Double longitude;
     char label;
     StringBuilder MarkerURLBuilder;
     
-    public Marker (float latitude, float longitude) {
+    public Marker (double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
         MarkerURLBuilder = new StringBuilder(MARKERS);
@@ -53,25 +53,25 @@ public class Marker {
     /**
      * @return the latitude
      */
-    public Float getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
     /**
      * @param latitude the latitude to set
      */
-    public void setLatitude(Float latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
     /**
      * @return the longitude
      */
-    public Float getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
     /**
      * @param longitude the longitude to set
      */
-    public void setLongitude(Float longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
     /**

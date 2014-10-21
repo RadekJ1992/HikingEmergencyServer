@@ -5,17 +5,16 @@
  */
 package pl.rj.hikingemergency.view;
 
-import pl.rj.hikingemergency.*;
+import pl.rj.hikingemergency.Constants;
 import pl.rj.hikingemergency.maputils.GoogleStaticMapsURL;
+import pl.rj.hikingemergency.maputils.MapUtils;
+import pl.rj.hikingemergency.maputils.Marker;
 import pl.rj.hikingemergency.model.Log;
 
-import java.awt.EventQueue;
-import java.awt.GraphicsConfiguration;
-import java.awt.HeadlessException;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.*;
 
 public class MainWindow extends JFrame implements ActionListener {
 
@@ -59,8 +58,17 @@ public class MainWindow extends JFrame implements ActionListener {
 
         mapArea = new MapArea(Constants.DEFAULT_LATITUDE, Constants.DEFAULT_LONGITUDE, Constants.DEFAULT_ZOOM_LVL);
         mapArea.setSize(Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
-        mapArea.setBounds(0 ,0, Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
+        mapArea.setBounds(0, 0, Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
         mapArea.setVisible(true);
+        Marker m = new Marker(Constants.DEFAULT_LATITUDE, Constants.DEFAULT_LONGITUDE);
+        m.setLabel('x');
+        m.setColor(MapUtils.Colors.blue);
+        m.setSize(MapUtils.Sizes.mid);
+        mapArea.addMarker(m);
+        Marker n = new Marker(Constants.DEFAULT_LATITUDE+0.02, Constants.DEFAULT_LONGITUDE-0.1);
+        n.setLabel('y');
+        n.setColor(MapUtils.Colors.green);
+        mapArea.addMarker(n);
         mapArea.refresh();
         contentPane.add(mapArea);
 

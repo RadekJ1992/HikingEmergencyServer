@@ -95,4 +95,7 @@
 	<lib name="transaction-api-1.1.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/libs/transaction-api-1.1.jar!/"/>
 	</lib>
+	<levels>
+		<level name="Extensions" value="project"/>
+	</levels>
 </component>

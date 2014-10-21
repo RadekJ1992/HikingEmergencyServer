@@ -5,6 +5,8 @@
  */
 package pl.rj.hikingemergency;
 
+import java.io.File;
+
 public final class Constants {
     public static String SERIAL_PORT_NAME = "/dev/tty.USB Modem Port_";
     public static int TIMEOUT = 5000;
@@ -29,4 +31,6 @@ public final class Constants {
     public static String MOVE_LEFT_ACTION = "move_left";
     public static String ZOOM_IN_ACTION = "zoom_in";
     public static String ZOOM_OUT_ACTION = "zoom_out";
+
+    public static String DESTINATION_MAP_LOCATION = "maps" + File.separator + "map.jpg";
 }
