@@ -33,4 +33,7 @@ public final class Constants {
     public static String ZOOM_OUT_ACTION = "zoom_out";
 
     public static String DESTINATION_MAP_LOCATION = "maps" + File.separator + "map.jpg";
+
+    public static String DATABASE_LOCATION = "jdbc:sqlite:HIKINGEMERGENCY.db";
+    public static String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 }

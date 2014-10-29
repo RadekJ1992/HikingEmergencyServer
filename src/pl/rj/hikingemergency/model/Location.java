@@ -19,6 +19,12 @@ public class Location {
         this.latitude = latitude;
     }
 
+    public Location(float longitude, float latitude, Date date) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.date = date;
+    }
+
     public float getLatitude() {
         return latitude;
     }
