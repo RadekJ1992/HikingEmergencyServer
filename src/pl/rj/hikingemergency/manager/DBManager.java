@@ -30,7 +30,6 @@ public class DBManager {
             stmt1 = c.createStatement();
             String sql1 = "CREATE TABLE IF NOT EXISTS USERS " +
                     "(USER_ID INT PRIMARY KEY AUTOINCREMENT    NOT NULL," +
-                    " NAME           TEXT    NOT NULL, " +
                     " PHONE_NUMER     TEXT NOT NULL, " +
                     " EMERGENCY_PHONE_NUMER     TEXT)";
             stmt1.executeUpdate(sql1);
@@ -127,14 +126,11 @@ public class DBManager {
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
-
-            String locationDate = new SimpleDateFormat(Constants.DATE_FORMAT).format(location.getDate());
-            String sql = "INSERT INTO USERS (NAME, PHONE_NUMBER, EMERGENCY_PHONE_NUMBER) " +
+            String sql = "INSERT INTO USERS (PHONE_NUMBER, EMERGENCY_PHONE_NUMBER) " +
                     "VALUES (?,?,?);";
             preparedStatement = c.prepareStatement(sql);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getPhoneNumber());
-            preparedStatement.setString(3, user.getEmergencyPhoneNumber());
+            preparedStatement.setString(1, user.getPhoneNumber());
+            preparedStatement.setString(2, user.getEmergencyPhoneNumber());
             preparedStatement.executeUpdate(sql);
             preparedStatement.close();
             c.close();
@@ -153,9 +149,8 @@ public class DBManager {
 
             String selectSQL = "SELECT USER_ID FROM USERS WHERE NAME = ?, PHONE_NUMBER = ?, EMERGENCY_PHONE_NUMBER = ?";
             PreparedStatement preparedStatement = c.prepareStatement(selectSQL);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getPhoneNumber());
-            preparedStatement.setString(3, user.getEmergencyPhoneNumber());
+            preparedStatement.setString(1, user.getPhoneNumber());
+            preparedStatement.setString(2, user.getEmergencyPhoneNumber());
             ResultSet rs = preparedStatement.executeQuery(selectSQL);
 
             while ( rs.next() ) {
@@ -184,10 +179,9 @@ public class DBManager {
 
             while ( rs.next() ) {
                 int userId = rs.getInt("USER_ID");
-                String name = rs.getString("NAME");
                 String phoneNumber = rs.getString("PHONE_NUMBER");
                 String emergencyPhoneNumber = rs.getString("EMERGENCY_PHONE_NUMBER");
-                result.add(new User(userId, name, phoneNumber, emergencyPhoneNumber));
+                result.add(new User(userId, phoneNumber, emergencyPhoneNumber));
             }
             rs.close();
             stmt.close();

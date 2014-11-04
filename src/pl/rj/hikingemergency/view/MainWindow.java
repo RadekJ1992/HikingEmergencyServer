@@ -7,8 +7,6 @@ package pl.rj.hikingemergency.view;
 
 import pl.rj.hikingemergency.Constants;
 import pl.rj.hikingemergency.maputils.GoogleStaticMapsURL;
-import pl.rj.hikingemergency.maputils.MapUtils;
-import pl.rj.hikingemergency.maputils.Marker;
 import pl.rj.hikingemergency.model.Log;
 
 import javax.swing.*;
@@ -60,7 +58,7 @@ public class MainWindow extends JFrame implements ActionListener {
         mapArea.setSize(Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
         mapArea.setBounds(0, 0, Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
         mapArea.setVisible(true);
-        Marker m = new Marker(Constants.DEFAULT_LATITUDE, Constants.DEFAULT_LONGITUDE);
+        /*Marker m = new Marker(Constants.DEFAULT_LATITUDE, Constants.DEFAULT_LONGITUDE);
         m.setLabel('x');
         m.setColor(MapUtils.Colors.blue);
         m.setSize(MapUtils.Sizes.mid);
@@ -68,7 +66,7 @@ public class MainWindow extends JFrame implements ActionListener {
         Marker n = new Marker(Constants.DEFAULT_LATITUDE+0.02, Constants.DEFAULT_LONGITUDE-0.1);
         n.setLabel('y');
         n.setColor(MapUtils.Colors.green);
-        mapArea.addMarker(n);
+        mapArea.addMarker(n);*/
         mapArea.refresh();
         contentPane.add(mapArea);
 
@@ -123,41 +121,8 @@ public class MainWindow extends JFrame implements ActionListener {
 
     }
 
-    /**
-     * @param gc
-     */
-    public MainWindow(GraphicsConfiguration gc) {
-        super(gc);
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * @param title
-     * @throws HeadlessException
-     */
-    public MainWindow(String title) throws HeadlessException {
-        super(title);
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * @param title
-     * @param gc
-     */
-    public MainWindow(String title, GraphicsConfiguration gc) {
-        super(title, gc);
-        // TODO Auto-generated constructor stub
-    }
-
-public static void main(String[] args) {
-        
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                MainWindow ex = new MainWindow();
-                ex.setVisible(true);
-            }
-        });
+    public MapArea getMapArea() {
+        return mapArea;
     }
 
     @Override

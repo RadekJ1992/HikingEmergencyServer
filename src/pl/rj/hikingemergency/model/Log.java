@@ -31,7 +31,9 @@ public final class Log {
 
     //dodanie linii logu
     public synchronized void addLine(String line) {
-        log.add(line);
+        Date curDate = new Date();
+        log.add(curDate.toString() + " : " + line);
+        System.out.println(line);
     }
 
     //pobranie danej linijki kodu

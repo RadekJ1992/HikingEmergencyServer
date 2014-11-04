@@ -36,4 +36,7 @@ public final class Constants {
 
     public static String DATABASE_LOCATION = "jdbc:sqlite:HIKINGEMERGENCY.db";
     public static String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    public static String SERVER_IP = "178.62.93.103";
+    public static int SERVER_PORT = 8000;
 }

@@ -9,39 +9,34 @@ public class User {
 
     private int userID;
     private Vector<Location> locations;
-    private String name;
     private String phoneNumber;
     private String emergencyPhoneNumber;
     private boolean isInEmergency;
 
-    public User(Vector<Location> locations, String phoneNumber) {
-        this.locations = locations;
-        this.phoneNumber = phoneNumber;
-        this.isInEmergency = false;
-    }
 
-    public User(int userID, String name, String phoneNumber, String emergencyPhoneNumber) {
+    public User(int userID, String phoneNumber, String emergencyPhoneNumber) {
+        locations = new Vector<>();
         this.userID = userID;
-        this.name = name;
         this.phoneNumber = phoneNumber;
         this.emergencyPhoneNumber = emergencyPhoneNumber;
     }
 
-    public User(int userID, Vector<Location> locations, String name, String phoneNumber, String emergencyPhoneNumber) {
+    public User(int userID, Vector<Location> locations, String phoneNumber, String emergencyPhoneNumber) {
         this.userID = userID;
         this.locations = locations;
-        this.name = name;
         this.phoneNumber = phoneNumber;
         this.emergencyPhoneNumber = emergencyPhoneNumber;
-
     }
 
-    public String getName() {
-        return name;
+    public User(String phoneNumber, String emergencyPhoneNumber) {
+        locations = new Vector<>();
+        this.phoneNumber = phoneNumber;
+        this.emergencyPhoneNumber = emergencyPhoneNumber;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public User(String phoneNumber) {
+        locations = new Vector<>();
+        this.phoneNumber = phoneNumber;
     }
 
     public boolean isInEmergency() {
@@ -62,6 +57,10 @@ public class User {
 
     public Vector<Location> getLocations() {
         return locations;
+    }
+
+    public void addLocation(float latitude, float longitude) {
+        locations.add(new Location(latitude, longitude));
     }
 
     public void setLocations(Vector<Location> locations) {
