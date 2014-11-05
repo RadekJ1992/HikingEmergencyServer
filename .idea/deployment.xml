@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="hikingEmergencyRelay">
+    <serverData>
+      <paths name="hikingEmergencyRelay">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/hikingEmergencyRelay" local="$PROJECT_DIR$/../HikingEmergencyRelay/src" web="/root/hikingEmergencyRelay" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/../HikingEmergencyRelay/HikingEmergencyRelay.iml" />
+            <excludedPath local="true" path="$PROJECT_DIR$/../HikingEmergencyRelay/bin" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
+

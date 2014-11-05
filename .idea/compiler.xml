@@ -18,6 +18,10 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="HikingEmergencyRelay" target="1.8" />
+      <module name="HikingEmergencyServer" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

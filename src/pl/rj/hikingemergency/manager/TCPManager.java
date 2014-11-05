@@ -58,7 +58,6 @@ public class TCPManager {
             writerThread = new Thread(writer);
             readerThread.start();
             writerThread.start();
-            SendMessage("server1234567");
         } catch (IOException e) {
             Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
         }
@@ -88,7 +87,7 @@ public class TCPManager {
                     } catch (IOException e) {
                         Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
                     }
-                    this.wait(200);
+                    Thread.sleep(200);
                 }
             } catch (InterruptedException e) {
                 Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
@@ -115,7 +114,7 @@ public class TCPManager {
                             out.println(line);
                             Log.getInstance().addLine("Outgoing TCP message: " + line);
                         }
-                    this.wait(200);
+                    Thread.sleep(200);
                 }
             } catch (InterruptedException e) {
                 Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
