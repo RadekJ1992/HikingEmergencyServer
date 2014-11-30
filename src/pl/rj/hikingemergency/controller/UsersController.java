@@ -1,5 +1,6 @@
 package pl.rj.hikingemergency.controller;
 
+import pl.rj.hikingemergency.manager.DBManager;
 import pl.rj.hikingemergency.manager.TCPManager;
 import pl.rj.hikingemergency.model.Log;
 import pl.rj.hikingemergency.model.Message;
@@ -15,7 +16,6 @@ import java.util.Vector;
  */
 public class UsersController implements Subject, Runnable {
 
-    private ArrayList<User> users;
     private ArrayList<Observer> observers;
     private boolean doWork;
     @Override
@@ -24,68 +24,71 @@ public class UsersController implements Subject, Runnable {
             while (doWork) {
                 Message msg = TCPManager.getInstance().getMessage();
                 if (msg != null) {
+                    boolean found = false;
                     switch (msg.getMessageType()) {
-                        case EMG:for (User knownUser : users) {
-                            if (knownUser.getPhoneNumber().equals(msg.getMyPhone())) {
-                                knownUser.setEmergencyPhoneNumber(msg.getEmgPhone());
-                                knownUser.addLocation(msg.getLatitude(), msg.getLongitude());
-                                knownUser.setInEmergency(true);
-                            } else {
+                        case EMG:
+                            for (User knownUser : DBManager.getInstance().getAllUsers()) {
+                                if (knownUser.getPhoneNumber().equals(msg.getMyPhone())) {
+                                    knownUser.setEmergencyPhoneNumber(msg.getEmgPhone());
+                                    knownUser.addLocation(msg.getLatitude(), msg.getLongitude());
+                                    knownUser.setInEmergency(true);
+                                    found = true;
+                                }
+                            }
+                            if (!found) {
                                 User user = new User(msg.getMyPhone(),msg.getEmgPhone());
                                 user.addLocation(msg.getLatitude(), msg.getLongitude());
                                 user.setInEmergency(true);
-                                users.add(user);
+                                DBManager.getInstance().addNewUser(user);
                             }
                             notifyObservers();
-                        }
                             break;
                         case HI:
-                            for (User knownUsers : users) {
-                                if (knownUsers.getPhoneNumber().equals(msg.getMyPhone())) {
-                                    knownUsers.setEmergencyPhoneNumber(msg.getEmgPhone());
-                                    knownUsers.setLocations(new Vector<>());
-                                    knownUsers.addLocation(msg.getLatitude(), msg.getLongitude());
-                                } else {
-                                    User user = new User(msg.getMyPhone(),msg.getEmgPhone());
-                                    user.addLocation(msg.getLatitude(), msg.getLongitude());
-                                    users.add(user);
+                            for (User knownUser : DBManager.getInstance().getAllUsers()) {
+                                if (knownUser.getPhoneNumber().equals(msg.getMyPhone())) {
+                                    knownUser.setEmergencyPhoneNumber(msg.getEmgPhone());
+                                    knownUser.setLocations(new Vector<>());
+                                    knownUser.addLocation(msg.getLatitude(), msg.getLongitude());
+                                    found = true;
                                 }
-                                notifyObservers();
                             }
+                            if (!found) {
+                                User user = new User(msg.getMyPhone(),msg.getEmgPhone());
+                                user.addLocation(msg.getLatitude(), msg.getLongitude());
+                                DBManager.getInstance().addNewUser(user);
+                            }
+                            notifyObservers();
                             break;
                         case LOC:
-                            for (User knownUsers : users) {
+                            for (User knownUsers : DBManager.getInstance().getAllUsers()) {
                                 if (knownUsers.getPhoneNumber().equals(msg.getMyPhone())) {
                                     knownUsers.addLocation(msg.getLatitude(), msg.getLongitude());
-                                } else {
-                                    User user = new User(msg.getMyPhone());
-                                    user.addLocation(msg.getLatitude(), msg.getLongitude());
-                                    users.add(user);
+                                    found = true;
                                 }
-                                notifyObservers();
                             }
+                            if (!found) {
+                                User user = new User(msg.getMyPhone());
+                                user.addLocation(msg.getLatitude(), msg.getLongitude());
+                                DBManager.getInstance().addNewUser(user);
+                            }
+                            notifyObservers();
                             break;
                         case UNDEFINED:
                         default:
                             break; //nic nie robimy gdy nie wiemy co to
                     }
                 }
-                this.wait(1000);
+                Thread.sleep(500);
             }
         } catch (InterruptedException e) {
+            e.printStackTrace();
             Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
         }
-    }
-
-
-    public ArrayList<User> getUsers() {
-        return users;
     }
 
     public UsersController() {
         observers = new ArrayList<>();
         doWork = true;
-        users = new ArrayList<>();
     }
 
     public void setWork(boolean doWork) {

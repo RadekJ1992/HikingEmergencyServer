@@ -18,10 +18,10 @@ public class DBManager {
 
     // private constructor
     private DBManager() {
-        Connection c = null;
-        Statement stmt1 = null;
-        Statement stmt2 = null;
-        Statement stmt3 = null;
+        Connection c;
+        Statement stmt1;
+        Statement stmt2;
+        Statement stmt3;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
@@ -29,16 +29,16 @@ public class DBManager {
 
             stmt1 = c.createStatement();
             String sql1 = "CREATE TABLE IF NOT EXISTS USERS " +
-                    "(USER_ID INT PRIMARY KEY AUTOINCREMENT    NOT NULL," +
-                    " PHONE_NUMER     TEXT NOT NULL, " +
-                    " EMERGENCY_PHONE_NUMER     TEXT)";
+                    "(USER_ID INTEGER PRIMARY KEY AUTOINCREMENT    NOT NULL," +
+                    " PHONE_NUMBER     TEXT NOT NULL, " +
+                    " EMERGENCY_PHONE_NUMBER     TEXT)";
             stmt1.executeUpdate(sql1);
             stmt1.close();
 
             stmt2 = c.createStatement();
             String sql2= "CREATE TABLE IF NOT EXISTS LOCATIONS" +
-                    "(LOCATION_ID INT PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "USER_ID INT NOT NULL," +
+                    "(LOCATION_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "USER_ID INTEGER NOT NULL," +
                     "LATITUDE REAL NOT NULL," +
                     "LONGITUDE REAL NOT NULL," +
                     "LOCATION_DATE TEXT NOT NULL," +
@@ -48,15 +48,16 @@ public class DBManager {
 
             stmt3 = c.createStatement();
             String sql3 = "CREATE TABLE IF NOT EXISTS EMERGENCIES " +
-                    "(EMERGENCY_ID INT PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "USER_ID INT NOT NULL," +
-                    "LOCATION_ID INT NOT NULL," +
+                    "(EMERGENCY_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "USER_ID INTEGER NOT NULL," +
+                    "LOCATION_ID INTEGER NOT NULL," +
                     "FOREIGN KEY (USER_ID) REFERENCES USERS(USER_ID) ON UPDATE CASCADE," +
                     "FOREIGN KEY (LOCATION_ID) REFERENCES LOCATIONS(LOCATION_ID) ON UPDATE CASCADE)";
             stmt3.executeUpdate(sql3);
             stmt3.close();
             c.close();
         } catch ( Exception e ) {
+            e.printStackTrace();
             Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
         }
         System.out.println("Table created successfully");
@@ -67,7 +68,7 @@ public class DBManager {
     }
 
     public void insertUserLocation(User user, Location location) {
-        Connection c = null;
+        Connection c;
         PreparedStatement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
@@ -83,16 +84,17 @@ public class DBManager {
             stmt.setFloat(2, latitude);
             stmt.setFloat(3, longitude);
             stmt.setString(4, locationDate);
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate();
             stmt.close();
             c.close();
         } catch ( Exception e ) {
+            e.printStackTrace();
             Log.getInstance().addLine( e.getClass().getName() + ": " + e.getMessage() );
         }
     }
 
     public Vector<Location> getUserLocations(User user) {
-        Connection c = null;
+        Connection c;
         PreparedStatement preparedStatement = null;
         Vector<Location> result = new Vector<Location>();
         try {
@@ -102,7 +104,7 @@ public class DBManager {
             String selectSQL = "SELECT LATITUDE, LONGITUDE, LOCATION_DATE FROM LOCATIONS WHERE USER_ID = ? order by LOCATION_ID ASC";
             preparedStatement = c.prepareStatement(selectSQL);
             preparedStatement.setInt(1, user.getUserID());
-            ResultSet rs = preparedStatement.executeQuery(selectSQL);
+            ResultSet rs = preparedStatement.executeQuery();
 
             while ( rs.next() ) {
                 float latitude = rs.getFloat("LATITUDE");
@@ -115,43 +117,46 @@ public class DBManager {
             preparedStatement.close();
             c.close();
         } catch ( Exception e ) {
+            e.printStackTrace();
             Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
         }
         return result;
     }
 
     public void addNewUser(User user) {
-        Connection c = null;
+        Connection c;
         PreparedStatement preparedStatement = null;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
             String sql = "INSERT INTO USERS (PHONE_NUMBER, EMERGENCY_PHONE_NUMBER) " +
-                    "VALUES (?,?,?);";
+                    "VALUES (?,?);";
             preparedStatement = c.prepareStatement(sql);
             preparedStatement.setString(1, user.getPhoneNumber());
             preparedStatement.setString(2, user.getEmergencyPhoneNumber());
-            preparedStatement.executeUpdate(sql);
+            preparedStatement.executeUpdate();
             preparedStatement.close();
             c.close();
             DBManager.getInstance().setUserID(user);
+            DBManager.getInstance().insertUserLocation(user, user.getLocations().lastElement());
         } catch ( Exception e ) {
+            e.printStackTrace();
             Log.getInstance().addLine( e.getClass().getName() + ": " + e.getMessage() );
         }
     }
 
     public void setUserID(User user) {
-        Connection c = null;
-        PreparedStatement preparedStatement1 = null;
+        Connection c;
+        PreparedStatement preparedStatement = null;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
 
-            String selectSQL = "SELECT USER_ID FROM USERS WHERE NAME = ?, PHONE_NUMBER = ?, EMERGENCY_PHONE_NUMBER = ?";
-            PreparedStatement preparedStatement = c.prepareStatement(selectSQL);
+            String selectSQL = "SELECT USER_ID FROM USERS WHERE PHONE_NUMBER = ? AND EMERGENCY_PHONE_NUMBER = ?";
+            preparedStatement = c.prepareStatement(selectSQL);
             preparedStatement.setString(1, user.getPhoneNumber());
             preparedStatement.setString(2, user.getEmergencyPhoneNumber());
-            ResultSet rs = preparedStatement.executeQuery(selectSQL);
+            ResultSet rs = preparedStatement.executeQuery();
 
             while ( rs.next() ) {
                 int id = rs.getInt("USER_ID");
@@ -161,13 +166,13 @@ public class DBManager {
             preparedStatement.close();
             c.close();
         } catch ( Exception e ) {
+            e.printStackTrace();
             Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 
     public Vector<User> getAllUsers() {
-        Connection c = null;
-        PreparedStatement stmt = null;
+        Connection c;
         Vector<User> result = new Vector<User>();
         try {
             Class.forName("org.sqlite.JDBC");
@@ -175,7 +180,7 @@ public class DBManager {
 
             String selectSQL = "SELECT USER_ID, PHONE_NUMBER, EMERGENCY_PHONE_NUMBER FROM USERS order by USER_ID ASC";
             PreparedStatement preparedStatement = c.prepareStatement(selectSQL);
-            ResultSet rs = preparedStatement.executeQuery(selectSQL);
+            ResultSet rs = preparedStatement.executeQuery();
 
             while ( rs.next() ) {
                 int userId = rs.getInt("USER_ID");
@@ -184,21 +189,20 @@ public class DBManager {
                 result.add(new User(userId, phoneNumber, emergencyPhoneNumber));
             }
             rs.close();
-            stmt.close();
+            preparedStatement.close();
             c.close();
 
             for (User u : result) {
                 u.setLocations(DBManager.getInstance().getUserLocations(u));
             }
-
         } catch ( Exception e ) {
+            e.printStackTrace();
             Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
         }
         return result;
     }
 
     public void setUserInEmergency(User user, Location location) {
-        //TODO zrobić to kiedyś
     }
 
 }

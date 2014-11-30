@@ -1,9 +1,6 @@
 package pl.rj.hikingemergency.controller;
 
 import pl.rj.hikingemergency.manager.TCPManager;
-import pl.rj.hikingemergency.maputils.MapUtils;
-import pl.rj.hikingemergency.maputils.Marker;
-import pl.rj.hikingemergency.model.User;
 import pl.rj.hikingemergency.utils.Observer;
 import pl.rj.hikingemergency.view.MainWindow;
 
@@ -22,7 +19,10 @@ public class MainController implements Observer{
     public MainController() {
         TCPManager.getInstance();
         usersController = new UsersController();
+        usersController.register(this);
+        Thread usersControllerThread = new Thread(usersController);
         this.mainWindow = new MainWindow();
+        usersControllerThread.start();
         this.mainWindow.setVisible(true);
 
     }
@@ -33,11 +33,6 @@ public class MainController implements Observer{
 
     //method to update the observer, used by subject
     public void update() {
-        for (User user : usersController.getUsers()) {
-            Marker m = new Marker(user.getLocations().lastElement().getLatitude(), user.getLocations().lastElement().getLongitude());
-            m.setColor(MapUtils.Colors.green);
-            mainWindow.getMapArea().addMarker(m);
-        }
         mainWindow.getMapArea().refresh();
     }
 }

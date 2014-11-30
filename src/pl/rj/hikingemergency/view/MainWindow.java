@@ -6,7 +6,6 @@
 package pl.rj.hikingemergency.view;
 
 import pl.rj.hikingemergency.Constants;
-import pl.rj.hikingemergency.maputils.GoogleStaticMapsURL;
 import pl.rj.hikingemergency.model.Log;
 
 import javax.swing.*;
@@ -26,10 +25,6 @@ public class MainWindow extends JFrame implements ActionListener {
     private JButton zoomOutButton;
 
     private JPanel contentPane;
-
-    private GoogleStaticMapsURL url;
-
-    
     
     /**
      * @throws HeadlessException
