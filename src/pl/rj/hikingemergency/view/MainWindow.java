@@ -6,14 +6,20 @@
 package pl.rj.hikingemergency.view;
 
 import pl.rj.hikingemergency.Constants;
+import pl.rj.hikingemergency.manager.DBManager;
+import pl.rj.hikingemergency.model.Location;
 import pl.rj.hikingemergency.model.Log;
+import pl.rj.hikingemergency.model.User;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
-public class MainWindow extends JFrame implements ActionListener {
+public class MainWindow extends JFrame implements ActionListener, ListSelectionListener {
 
     private MapArea mapArea;
 
@@ -24,7 +30,25 @@ public class MainWindow extends JFrame implements ActionListener {
     private JButton zoomInButton;
     private JButton zoomOutButton;
 
+    private JLabel telephoneNumberLabel;
+    private JLabel telephoneNumberField;
+    private JLabel emergencyTelephoneNumberLabel;
+    private JLabel emergencyTelephoneNumberField;
+    private JLabel locationLabel;
+    private JLabel dateLabel;
+    private JLabel dateField;
+    private JLabel latitudeLabel;
+    private JLabel latitudeField;
+    private JLabel longitudeLabel;
+    private JLabel longitudeField;
+
+    private JLabel allUsersLabel;
+    private JTable allUsersTable;
+    private JScrollPane allUsersScrollPane;
+
     private JPanel contentPane;
+
+    private static User selectedUser;
     
     /**
      * @throws HeadlessException
@@ -53,15 +77,7 @@ public class MainWindow extends JFrame implements ActionListener {
         mapArea.setSize(Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
         mapArea.setBounds(0, 0, Constants.MAP_WIDTH, Constants.MAP_HEIGHT);
         mapArea.setVisible(true);
-        /*Marker m = new Marker(Constants.DEFAULT_LATITUDE, Constants.DEFAULT_LONGITUDE);
-        m.setLabel('x');
-        m.setColor(MapUtils.Colors.blue);
-        m.setSize(MapUtils.Sizes.mid);
-        mapArea.addMarker(m);
-        Marker n = new Marker(Constants.DEFAULT_LATITUDE+0.02, Constants.DEFAULT_LONGITUDE-0.1);
-        n.setLabel('y');
-        n.setColor(MapUtils.Colors.green);
-        mapArea.addMarker(n);*/
+
         mapArea.refresh();
         contentPane.add(mapArea);
 
@@ -108,6 +124,83 @@ public class MainWindow extends JFrame implements ActionListener {
         zoomOutButton.addActionListener(this);
         contentPane.add(zoomOutButton);
 
+        telephoneNumberLabel = new JLabel("Telephone number:");
+        telephoneNumberLabel.setBounds(14*Constants.GUI_STEP, 5*Constants.GUI_STEP, 5*Constants.GUI_STEP, Constants.GUI_STEP);
+        telephoneNumberLabel.setVisible(true);
+        contentPane.add(telephoneNumberLabel);
+
+        telephoneNumberField = new JLabel("-");
+        telephoneNumberField.setBounds(14*Constants.GUI_STEP, (int)(5.5*Constants.GUI_STEP), 5*Constants.GUI_STEP, Constants.GUI_STEP);
+        telephoneNumberField.setVisible(true);
+        contentPane.add(telephoneNumberField);
+
+        emergencyTelephoneNumberLabel = new JLabel("Emergency Telephone number");
+        emergencyTelephoneNumberLabel.setBounds(14*Constants.GUI_STEP, 6*Constants.GUI_STEP, 5*Constants.GUI_STEP, Constants.GUI_STEP);
+        emergencyTelephoneNumberLabel.setVisible(true);
+        contentPane.add(emergencyTelephoneNumberLabel);
+
+        emergencyTelephoneNumberField = new JLabel("-");
+        emergencyTelephoneNumberField.setBounds(14*Constants.GUI_STEP, (int)(6.5*Constants.GUI_STEP), 5*Constants.GUI_STEP, Constants.GUI_STEP);
+        emergencyTelephoneNumberField.setVisible(true);
+        contentPane.add(emergencyTelephoneNumberField);
+
+        locationLabel = new JLabel("Location:");
+        locationLabel.setBounds(14*Constants.GUI_STEP, 7*Constants.GUI_STEP, 5*Constants.GUI_STEP, Constants.GUI_STEP);
+        locationLabel.setVisible(true);
+        contentPane.add(locationLabel);
+
+        dateLabel = new JLabel("Date:");
+        dateLabel.setBounds(14*Constants.GUI_STEP, (int)(7.5*Constants.GUI_STEP), Constants.GUI_STEP, Constants.GUI_STEP);
+        dateLabel.setVisible(true);
+        contentPane.add(dateLabel);
+
+        dateField = new JLabel("-");
+        dateField.setBounds(15*Constants.GUI_STEP, (int)(7.5*Constants.GUI_STEP), 4*Constants.GUI_STEP, Constants.GUI_STEP);
+        dateField.setVisible(true);
+        contentPane.add(dateField);
+
+        latitudeLabel = new JLabel("Lat:");
+        latitudeLabel.setBounds(14*Constants.GUI_STEP, 8*Constants.GUI_STEP, Constants.GUI_STEP, Constants.GUI_STEP);
+        latitudeLabel.setVisible(true);
+        contentPane.add(latitudeLabel);
+
+        latitudeField = new JLabel("-");
+        latitudeField.setBounds(15*Constants.GUI_STEP, 8*Constants.GUI_STEP, 4*Constants.GUI_STEP, Constants.GUI_STEP);
+        latitudeField.setVisible(true);
+        contentPane.add(latitudeField);
+
+        longitudeLabel = new JLabel("Lng:");
+        longitudeLabel.setBounds(14*Constants.GUI_STEP, (int)(8.5*Constants.GUI_STEP), Constants.GUI_STEP, Constants.GUI_STEP);
+        longitudeLabel.setVisible(true);
+        contentPane.add(longitudeLabel);
+
+        longitudeField = new JLabel("-");
+        longitudeField.setBounds(15*Constants.GUI_STEP, (int)(8.5*Constants.GUI_STEP), 4*Constants.GUI_STEP, Constants.GUI_STEP);
+        longitudeField.setVisible(true);
+        contentPane.add(longitudeField);
+
+        allUsersLabel = new JLabel("All Users:");
+        allUsersLabel.setBounds(14*Constants.GUI_STEP, (int)(9.5*Constants.GUI_STEP), 5*Constants.GUI_STEP, Constants.GUI_STEP);
+        allUsersLabel.setVisible(true);
+        contentPane.add(allUsersLabel);
+
+        Vector<Vector<String>> tableData = getUsersForTable();
+        Vector<String> columnNames = new Vector<String>();
+        columnNames.add("Phone Number");
+        columnNames.add("Needs Help?");
+
+        allUsersTable = new JTable(tableData, columnNames);
+        allUsersTable.setVisible(true);
+        allUsersTable.getSelectionModel().addListSelectionListener(this);
+
+        allUsersScrollPane = new JScrollPane(allUsersTable);
+        allUsersScrollPane.setBounds(14*Constants.GUI_STEP, (int)(10.5*Constants.GUI_STEP), 5*Constants.GUI_STEP, 4*Constants.GUI_STEP);
+        allUsersScrollPane.setVisible(true);
+        contentPane.add(allUsersScrollPane);
+
+     //   private JTable allUsersTable;
+        //private JScrollPane allUsersScrollPane;
+
         this.setContentPane(contentPane);
         this.pack();
         this.setLocationByPlatform(true);
@@ -140,5 +233,38 @@ public class MainWindow extends JFrame implements ActionListener {
         if (e.getActionCommand().equals(Constants.ZOOM_OUT_ACTION)) {
             mapArea.zoomOut();
         }
+    }
+
+    private Vector<Vector<String>> getUsersForTable() {
+        Vector<User> usersVector = DBManager.getInstance().getAllUsers();
+        Vector<Vector<String>> result = new Vector<>();
+        for (User user : usersVector) {
+            Vector<String> row = new Vector<>();
+            row.add(user.getPhoneNumber());
+            row.add(user.isInEmergency() ? "YES" : "NO");
+            result.add(row);
+        }
+        return result;
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        String phoneNumber = allUsersTable.getValueAt(allUsersTable.getSelectedRow(), 0).toString();
+        for (User user : DBManager.getInstance().getAllUsers()) {
+            if (user.getPhoneNumber().equals(phoneNumber)) {
+                MainWindow.selectedUser = user;
+                this.telephoneNumberField.setText(user.getPhoneNumber());
+                this.emergencyTelephoneNumberField.setText(user.getEmergencyPhoneNumber() == null ? "-" : user.getEmergencyPhoneNumber());
+                Vector<Location> locations = user.getLocations();
+                this.dateField.setText(locations.lastElement().getDate().toString());
+                this.latitudeField.setText("" + locations.lastElement().getLatitude());
+                this.longitudeField.setText("" + locations.lastElement().getLongitude());
+                mapArea.refresh();
+            }
+        }
+    }
+
+    public static User getSelectedUser() {
+        return selectedUser;
     }
 }

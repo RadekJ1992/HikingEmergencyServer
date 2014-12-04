@@ -18,12 +18,12 @@ public final class Constants {
     public static double DEFAULT_LONGITUDE = 21.0122287;
     public static int DEFAULT_ZOOM_LVL = 10;
 
-    public static int WINDOW_WIDTH = 1000;
+    public static int WINDOW_WIDTH = 960;
     public static int WINDOW_HEIGHT = 750;
     public static int MAP_WIDTH = 650;
     public static int MAP_HEIGHT = 750;
     public static int BUTTON_SIZE = 50;
-    public static int GUI_STEP = WINDOW_WIDTH/20;
+    public static int GUI_STEP = 50;
 
     public static String MOVE_UP_ACTION = "move_up";
     public static String MOVE_DOWN_ACTION = "move_down";
