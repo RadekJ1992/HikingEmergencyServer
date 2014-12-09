@@ -21,7 +21,7 @@ public class Test
         gateway.setSimPin("0000");
 // Explicit SMSC address set is required for some modems.
 // Below is for VODAFONE GREECE - be sure to set your own!
-        gateway.setSmscNumber("+48601000310");
+        gateway.setSmscNumber("+48602951111");
         Service.getInstance().setOutboundMessageNotification(outboundNotification);
         Service.getInstance().addGateway(gateway);
         Service.getInstance().startService();

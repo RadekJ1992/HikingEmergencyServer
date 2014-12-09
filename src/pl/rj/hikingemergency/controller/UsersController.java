@@ -1,10 +1,10 @@
 package pl.rj.hikingemergency.controller;
 
 import pl.rj.hikingemergency.manager.DBManager;
-import pl.rj.hikingemergency.manager.TCPManager;
 import pl.rj.hikingemergency.model.Log;
 import pl.rj.hikingemergency.model.Message;
 import pl.rj.hikingemergency.model.User;
+import pl.rj.hikingemergency.utils.MessagesHandler;
 import pl.rj.hikingemergency.utils.Observer;
 import pl.rj.hikingemergency.utils.Subject;
 
@@ -22,7 +22,7 @@ public class UsersController implements Subject, Runnable {
     public void run() {
         try {
             while (doWork) {
-                Message msg = TCPManager.getInstance().getMessage();
+                Message msg = MessagesHandler.getInstance().getMessage();
                 if (msg != null) {
                     boolean found = false;
                     switch (msg.getMessageType()) {

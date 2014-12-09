@@ -3,6 +3,7 @@ package pl.rj.hikingemergency.manager;
 import pl.rj.hikingemergency.Constants;
 import pl.rj.hikingemergency.model.Log;
 import pl.rj.hikingemergency.model.Message;
+import pl.rj.hikingemergency.utils.MessagesHandler;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,7 +19,6 @@ public class TCPManager {
 
     private BufferedReader in;
     private PrintWriter out;
-    private volatile ConcurrentLinkedQueue<Message> incomingMessages;
     private volatile ConcurrentLinkedQueue<String> outgoingMessages;
 
     private Thread readerThread;
@@ -34,17 +34,12 @@ public class TCPManager {
         return instance;
     }
     private TCPManager() {
-        incomingMessages = new ConcurrentLinkedQueue<>();
         outgoingMessages = new ConcurrentLinkedQueue<>();
         Connect();
     }
 
     public void SendMessage(String str) {
         outgoingMessages.add(str);
-    }
-
-    public Message getMessage() {
-        return incomingMessages.poll();
     }
 
     private void Connect() {
@@ -83,7 +78,7 @@ public class TCPManager {
                     try {
                         String line = in.readLine();
                         Message msg = new Message(line);
-                        incomingMessages.add(msg);
+                        MessagesHandler.getInstance().addMessage(msg);
                         Log.getInstance().addLine("Incoming TCP message: " + line);
                     } catch (IOException e) {
                         e.printStackTrace();
