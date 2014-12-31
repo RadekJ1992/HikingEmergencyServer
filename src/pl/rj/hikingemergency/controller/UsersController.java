@@ -1,6 +1,7 @@
 package pl.rj.hikingemergency.controller;
 
 import pl.rj.hikingemergency.manager.DBManager;
+import pl.rj.hikingemergency.model.Location;
 import pl.rj.hikingemergency.model.Log;
 import pl.rj.hikingemergency.model.Message;
 import pl.rj.hikingemergency.model.User;
@@ -30,16 +31,20 @@ public class UsersController implements Subject, Runnable {
                             for (User knownUser : DBManager.getInstance().getAllUsers()) {
                                 if (knownUser.getPhoneNumber().equals(msg.getMyPhone())) {
                                     knownUser.setEmergencyPhoneNumber(msg.getEmgPhone());
-                                    knownUser.addLocation(msg.getLatitude(), msg.getLongitude());
+                                    Location location = new Location(msg.getLatitude(), msg.getLongitude());
+                                    knownUser.addLocation(location);
                                     knownUser.setInEmergency(true);
                                     found = true;
+                                    DBManager.getInstance().setUserInEmergency(knownUser, location);
                                 }
                             }
                             if (!found) {
                                 User user = new User(msg.getMyPhone(),msg.getEmgPhone());
-                                user.addLocation(msg.getLatitude(), msg.getLongitude());
+                                Location location = new Location(msg.getLatitude(), msg.getLongitude());
+                                user.addLocation(location);
                                 user.setInEmergency(true);
                                 DBManager.getInstance().addNewUser(user);
+                                DBManager.getInstance().setUserInEmergency(user, location);
                             }
                             notifyObservers();
                             break;
@@ -48,27 +53,33 @@ public class UsersController implements Subject, Runnable {
                                 if (knownUser.getPhoneNumber().equals(msg.getMyPhone())) {
                                     knownUser.setEmergencyPhoneNumber(msg.getEmgPhone());
                                     knownUser.setLocations(new Vector<>());
-                                    knownUser.addLocation(msg.getLatitude(), msg.getLongitude());
+                                    Location location = new Location(msg.getLatitude(), msg.getLongitude());
+                                    knownUser.addLocation(location);
+                                    DBManager.getInstance().insertUserLocation(knownUser, location);
                                     found = true;
                                 }
                             }
                             if (!found) {
                                 User user = new User(msg.getMyPhone(),msg.getEmgPhone());
-                                user.addLocation(msg.getLatitude(), msg.getLongitude());
+                                Location location = new Location(msg.getLatitude(), msg.getLongitude());
+                                user.addLocation(location);
                                 DBManager.getInstance().addNewUser(user);
                             }
                             notifyObservers();
                             break;
                         case LOC:
-                            for (User knownUsers : DBManager.getInstance().getAllUsers()) {
-                                if (knownUsers.getPhoneNumber().equals(msg.getMyPhone())) {
-                                    knownUsers.addLocation(msg.getLatitude(), msg.getLongitude());
+                            for (User knownUser : DBManager.getInstance().getAllUsers()) {
+                                if (knownUser.getPhoneNumber().equals(msg.getMyPhone())) {
+                                    Location location = new Location(msg.getLatitude(), msg.getLongitude());
+                                    knownUser.addLocation(location);
+                                    DBManager.getInstance().insertUserLocation(knownUser, location);
                                     found = true;
                                 }
                             }
                             if (!found) {
                                 User user = new User(msg.getMyPhone());
-                                user.addLocation(msg.getLatitude(), msg.getLongitude());
+                                Location location = new Location(msg.getLatitude(), msg.getLongitude());
+                                user.addLocation(location);
                                 DBManager.getInstance().addNewUser(user);
                             }
                             notifyObservers();

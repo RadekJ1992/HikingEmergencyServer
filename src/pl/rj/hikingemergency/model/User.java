@@ -59,8 +59,8 @@ public class User {
         return locations;
     }
 
-    public void addLocation(float latitude, float longitude) {
-        locations.add(new Location(latitude, longitude));
+    public void addLocation(Location location) {
+        locations.add(location);
     }
 
     public void setLocations(Vector<Location> locations) {

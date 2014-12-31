@@ -15,42 +15,51 @@ public class Message {
 
 
     public Message(String str) {
-        String[] msgParts = str.split(";");
-        switch (msgParts[0]) {
-            case "HI":
-                this.wholeMessage = str;
-                if (msgParts.length == 5) {
-                    this.messageType = MessageType.HI;
-                    this.myPhone = msgParts[1];
-                    this.emgPhone = msgParts[2];
-                    this.latitude = Float.valueOf(msgParts[3]);
-                    this.longitude = Float.valueOf(msgParts[4]);
-                } else { this.messageType = MessageType.UNDEFINED; }
-                break;
-            case "EMG":
-                this.wholeMessage = str;
-                if (msgParts.length == 4) {
-                    this.messageType = MessageType.EMG;
-                    this.myPhone = msgParts[1];
-                    this.latitude = Float.valueOf(msgParts[2]);
-                    this.longitude = Float.valueOf(msgParts[3]);
-                } else { this.messageType = MessageType.UNDEFINED; }
-                break;
-            case "LOC":
-                this.wholeMessage = str;
-                if (msgParts.length == 4) {
-                    this.messageType = MessageType.LOC;
-                    this.myPhone = msgParts[1];
-                    this.latitude = Float.valueOf(msgParts[2]);
-                    this.longitude = Float.valueOf(msgParts[3]);
-                } else { this.messageType = MessageType.UNDEFINED; }
-                break;
-            default:
-                this.wholeMessage = str;
-                this.messageType = MessageType.UNDEFINED;
-                break;
+        try {
+            String[] msgParts = str.split(";");
+            switch (msgParts[0]) {
+                case "HI":
+                    this.wholeMessage = str;
+                    if (msgParts.length == 5) {
+                        this.messageType = MessageType.HI;
+                        this.myPhone = msgParts[1];
+                        this.emgPhone = msgParts[2];
+                        this.latitude = Float.valueOf(msgParts[3]);
+                        this.longitude = Float.valueOf(msgParts[4]);
+                    } else {
+                        this.messageType = MessageType.UNDEFINED;
+                    }
+                    break;
+                case "EMG":
+                    this.wholeMessage = str;
+                    if (msgParts.length == 4) {
+                        this.messageType = MessageType.EMG;
+                        this.myPhone = msgParts[1];
+                        this.latitude = Float.valueOf(msgParts[2]);
+                        this.longitude = Float.valueOf(msgParts[3]);
+                    } else {
+                        this.messageType = MessageType.UNDEFINED;
+                    }
+                    break;
+                case "LOC":
+                    this.wholeMessage = str;
+                    if (msgParts.length == 4) {
+                        this.messageType = MessageType.LOC;
+                        this.myPhone = msgParts[1];
+                        this.latitude = Float.valueOf(msgParts[2]);
+                        this.longitude = Float.valueOf(msgParts[3]);
+                    } else {
+                        this.messageType = MessageType.UNDEFINED;
+                    }
+                    break;
+                default:
+                    this.wholeMessage = str;
+                    this.messageType = MessageType.UNDEFINED;
+                    break;
+            }
+        } catch (Exception e) {
+            Log.getInstance().addLine("Wrong message format! " + str);
         }
-
     }
     public MessageType getMessageType() {
         return messageType;

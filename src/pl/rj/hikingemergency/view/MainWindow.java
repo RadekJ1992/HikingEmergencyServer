@@ -256,9 +256,11 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
                 this.telephoneNumberField.setText(user.getPhoneNumber());
                 this.emergencyTelephoneNumberField.setText(user.getEmergencyPhoneNumber() == null ? "-" : user.getEmergencyPhoneNumber());
                 Vector<Location> locations = user.getLocations();
-                this.dateField.setText(locations.lastElement().getDate().toString());
-                this.latitudeField.setText("" + locations.lastElement().getLatitude());
-                this.longitudeField.setText("" + locations.lastElement().getLongitude());
+                if (!locations.isEmpty()) {
+                    this.dateField.setText(locations.lastElement().getDate().toString());
+                    this.latitudeField.setText("" + locations.lastElement().getLatitude());
+                    this.longitudeField.setText("" + locations.lastElement().getLongitude());
+                }
                 mapArea.refresh();
             }
         }

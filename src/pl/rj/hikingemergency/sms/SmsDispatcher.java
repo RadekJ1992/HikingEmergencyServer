@@ -35,6 +35,10 @@ public class SmsDispatcher {
         messagesReaderThread.start();
     }
 
+    public List<InboundMessage> getMessagesList() {
+        return messagesList;
+    }
+
     private void setup() {
         try {
             outboundNotification = new OutboundNotification();
@@ -96,7 +100,9 @@ public class SmsDispatcher {
                     for (InboundMessage msg : messagesList) {
                         pl.rj.hikingemergency.model.Message message = new pl.rj.hikingemergency.model.Message(msg.getText());
                         MessagesHandler.getInstance().addMessage(message);
+                        Service.getInstance().deleteMessage(msg);
                     }
+                    messagesList = new ArrayList<InboundMessage>();
                 } else {
                     Service.getInstance().startService();
                 }

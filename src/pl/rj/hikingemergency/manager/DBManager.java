@@ -51,6 +51,7 @@ public class DBManager {
                     "(EMERGENCY_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "USER_ID INTEGER NOT NULL," +
                     "LOCATION_ID INTEGER NOT NULL," +
+                    "IS_ACTIVE INTEGER NOT NULL," + //nie ma boolean w sqlite więc jest integer 0 false 1 true
                     "FOREIGN KEY (USER_ID) REFERENCES USERS(USER_ID) ON UPDATE CASCADE," +
                     "FOREIGN KEY (LOCATION_ID) REFERENCES LOCATIONS(LOCATION_ID) ON UPDATE CASCADE)";
             stmt3.executeUpdate(sql3);
@@ -60,7 +61,7 @@ public class DBManager {
             e.printStackTrace();
             Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
         }
-        System.out.println("Table created successfully");
+        System.out.println("Tables created successfully");
     }
 
     public static DBManager getInstance() {
@@ -101,17 +102,18 @@ public class DBManager {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
 
-            String selectSQL = "SELECT LATITUDE, LONGITUDE, LOCATION_DATE FROM LOCATIONS WHERE USER_ID = ? order by LOCATION_ID ASC";
+            String selectSQL = "SELECT LOCATION_ID, LATITUDE, LONGITUDE, LOCATION_DATE FROM LOCATIONS WHERE USER_ID = ? order by LOCATION_ID ASC";
             preparedStatement = c.prepareStatement(selectSQL);
             preparedStatement.setInt(1, user.getUserID());
             ResultSet rs = preparedStatement.executeQuery();
 
             while ( rs.next() ) {
+                int id = rs.getInt("LOCATION_ID");
                 float latitude = rs.getFloat("LATITUDE");
                 float longitude = rs.getFloat("LONGITUDE");
                 String dateString = rs.getString("LOCATION_DATE");
                 java.util.Date date = new SimpleDateFormat(Constants.DATE_FORMAT).parse(dateString);
-                result.add(new Location(latitude, longitude, date));
+                result.add(new Location(id, latitude, longitude, date));
             }
             rs.close();
             preparedStatement.close();
@@ -203,6 +205,30 @@ public class DBManager {
     }
 
     public void setUserInEmergency(User user, Location location) {
+        insertUserLocation(user, location);
+        Vector<Location> locations = getUserLocations(user);
+        int locationId = locations.lastElement().getId();
+        int userId = user.getUserID();
+        Connection c;
+        PreparedStatement preparedStatement = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
+            String sql = "INSERT INTO EMERGENCIES (USER_ID, LOCATION_ID, IS_ACTIVE) " +
+                    "VALUES (?,?, 1);";
+            preparedStatement = c.prepareStatement(sql);
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(2, locationId);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            c.close();
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            Log.getInstance().addLine( e.getClass().getName() + ": " + e.getMessage() );
+        }
     }
 
+    public void setUserNotInEmergency() {}
+
+    public boolean isUserInEmergency() { return false;}
 }
