@@ -10,6 +10,7 @@ import pl.rj.hikingemergency.manager.DBManager;
 import pl.rj.hikingemergency.model.Location;
 import pl.rj.hikingemergency.model.Log;
 import pl.rj.hikingemergency.model.User;
+import pl.rj.hikingemergency.sms.SmsDispatcher;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -22,6 +23,9 @@ import java.util.Vector;
 public class MainWindow extends JFrame implements ActionListener, ListSelectionListener {
 
     private MapArea mapArea;
+
+    private JLabel connectToModemLabel;
+    private JButton connectToModemButton;
 
     private JButton upButton;
     private JButton downButton;
@@ -81,6 +85,18 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
 
         mapArea.refresh();
         contentPane.add(mapArea);
+
+        connectToModemLabel = new JLabel("<html>3G modem: <font color='red'>disconnected</font></html>");
+        connectToModemLabel.setBounds((int)(13.5*Constants.GUI_STEP), 0*Constants.GUI_STEP, 5*Constants.GUI_STEP, Constants.GUI_STEP);
+        connectToModemLabel.setVisible(true);
+        contentPane.add(connectToModemLabel);
+
+        connectToModemButton = new JButton("Connect");
+        connectToModemButton.setActionCommand(Constants.CONNECT_ACTION);
+        connectToModemButton.setBounds((17 * Constants.GUI_STEP), (int) (0.25 * Constants.GUI_STEP), 2 * Constants.BUTTON_SIZE, (int) (0.5 * Constants.BUTTON_SIZE));
+        connectToModemButton.setVisible(true);
+        connectToModemButton.addActionListener(this);
+        contentPane.add(connectToModemButton);
 
         //tworzenie przyciskow
         upButton = new JButton("^");
@@ -250,6 +266,14 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
                 refresh();
             }
         }
+        if (e.getActionCommand().equals(Constants.CONNECT_ACTION)) {
+            if (SmsDispatcher.getInstance().isConnected()) {
+                SmsDispatcher.getInstance().disconnect();
+            } else {
+                SmsDispatcher.getInstance().connect();
+            }
+            refresh();
+        }
     }
 
     private Vector<Vector<String>> getUsersForTable() {
@@ -308,6 +332,14 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
         this.allUsersScrollPane.setBounds(14*Constants.GUI_STEP, (int)(10.5*Constants.GUI_STEP), 5*Constants.GUI_STEP, 4*Constants.GUI_STEP);
         this.allUsersScrollPane.setVisible(true);
         this.contentPane.add(allUsersScrollPane);
+
+        if (SmsDispatcher.getInstance().isConnected()) {
+            connectToModemLabel.setText("<html>3G modem: <font color='green'>connected</font></html>");
+            connectToModemButton.setText("Disconnect");
+        } else {
+            connectToModemLabel.setText("<html>3G modem: <font color='red'>disconnected</font></html>");
+            connectToModemButton.setText("Connect");
+        }
         this.mapArea.refresh();
         this.repaint();
     }

@@ -3,6 +3,7 @@ package pl.rj.hikingemergency.sms;
 import org.smslib.*;
 import org.smslib.modem.SerialModemGateway;
 import pl.rj.hikingemergency.Constants;
+import pl.rj.hikingemergency.model.Log;
 import pl.rj.hikingemergency.utils.MessagesHandler;
 
 import java.io.IOException;
@@ -21,6 +22,16 @@ public class SmsDispatcher {
     private MessagesReader messagesReader;
     private Thread messagesReaderThread;
 
+    private SerialModemGateway gateway;
+
+    public boolean isConnected() {
+        if (Service.getInstance().getServiceStatus().equals(Service.ServiceStatus.STARTED)
+                || Service.getInstance().getServiceStatus().equals(Service.ServiceStatus.STARTING)) {
+            return true;
+        }
+        return false;
+    }
+
     public static SmsDispatcher getInstance() {
         return instance;
     }
@@ -29,7 +40,7 @@ public class SmsDispatcher {
 
     private SmsDispatcher() {
         messagesList = new ArrayList<InboundMessage>();
-        setup();
+        //connect();
         messagesReader = new MessagesReader();
         messagesReaderThread = new Thread(messagesReader);
         messagesReaderThread.start();
@@ -39,13 +50,13 @@ public class SmsDispatcher {
         return messagesList;
     }
 
-    private void setup() {
+    public void connect() {
         try {
             outboundNotification = new OutboundNotification();
-            System.out.println("Example: Send message from a serial gsm modem.");
-            System.out.println(Library.getLibraryDescription());
-            System.out.println("Version: " + Library.getLibraryVersion());
-            SerialModemGateway gateway = new SerialModemGateway("modem.com1", Constants.SERIAL_PORT_NAME, 115200, "D-Link", "DWM-156");
+            Log.getInstance().addLine("Example: Send message from a serial gsm modem.");
+            Log.getInstance().addLine(Library.getLibraryDescription());
+            Log.getInstance().addLine("Version: " + Library.getLibraryVersion());
+            gateway = new SerialModemGateway("modem.com1", Constants.SERIAL_PORT_NAME, 115200, "D-Link", "DWM-156");
             gateway.setInbound(true);
             gateway.setOutbound(true);
             gateway.setSimPin("0000");
@@ -53,15 +64,27 @@ public class SmsDispatcher {
             Service.getInstance().setOutboundMessageNotification(outboundNotification);
             Service.getInstance().addGateway(gateway);
             Service.getInstance().startService();
-            System.out.println();
-            System.out.println("Modem Information:");
-            System.out.println("  Manufacturer: " + gateway.getManufacturer());
-            System.out.println("  Model: " + gateway.getModel());
-            System.out.println("  Serial No: " + gateway.getSerialNo());
-            System.out.println("  SIM IMSI: " + gateway.getImsi());
-            System.out.println("  Signal Level: " + gateway.getSignalLevel() + " dBm");
-            System.out.println("  Battery Level: " + gateway.getBatteryLevel() + "%");
-            System.out.println();
+            Log.getInstance().addLine("Modem Information:");
+            Log.getInstance().addLine("  Manufacturer: " + gateway.getManufacturer());
+            Log.getInstance().addLine("  Model: " + gateway.getModel());
+            Log.getInstance().addLine("  Serial No: " + gateway.getSerialNo());
+            Log.getInstance().addLine("  SIM IMSI: " + gateway.getImsi());
+            Log.getInstance().addLine("  Signal Level: " + gateway.getSignalLevel() + " dBm");
+            Log.getInstance().addLine("  Battery Level: " + gateway.getBatteryLevel() + "%");
+        } catch (SMSLibException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void disconnect() {
+        try {
+            Service.getInstance().stopService();
+            gateway.stopGateway();
+            Service.getInstance().removeGateway(gateway);
         } catch (SMSLibException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -86,7 +109,7 @@ public class SmsDispatcher {
                 e.printStackTrace();
             }
         } else {
-            setup();
+            connect();
             sendMessage(number, message);
         }
     }
@@ -95,16 +118,18 @@ public class SmsDispatcher {
         @Override
         public void run() {
             try {
-                if (Service.getInstance().getServiceStatus().equals(Service.ServiceStatus.STARTED)) {
-                    Service.getInstance().readMessages(messagesList, InboundMessage.MessageClasses.ALL);
-                    for (InboundMessage msg : messagesList) {
-                        pl.rj.hikingemergency.model.Message message = new pl.rj.hikingemergency.model.Message(msg.getText());
-                        MessagesHandler.getInstance().addMessage(message);
-                        Service.getInstance().deleteMessage(msg);
+                while(true) {
+                    if (Service.getInstance().getServiceStatus().equals(Service.ServiceStatus.STARTED)) {
+                        Service.getInstance().readMessages(messagesList, InboundMessage.MessageClasses.ALL);
+                        for (InboundMessage msg : messagesList) {
+                            pl.rj.hikingemergency.model.Message message = new pl.rj.hikingemergency.model.Message(msg.getText());
+                            Log.getInstance().addLine("Received SMS message : " + msg.getText());
+                            MessagesHandler.getInstance().addMessage(message);
+                            Service.getInstance().deleteMessage(msg);
+                        }
+                        messagesList = new ArrayList<InboundMessage>();
                     }
-                    messagesList = new ArrayList<InboundMessage>();
-                } else {
-                    Service.getInstance().startService();
+                    Thread.sleep(3000);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -117,11 +142,6 @@ public class SmsDispatcher {
             } catch (SMSLibException e) {
                 e.printStackTrace();
             }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -129,8 +149,8 @@ public class SmsDispatcher {
     {
         public void process(AGateway gateway, OutboundMessage msg)
         {
-            System.out.println("Outbound handler called from Gateway: " + gateway.getGatewayId());
-            System.out.println(msg);
+            Log.getInstance().addLine("Outbound handler called from Gateway: " + gateway.getGatewayId());
+            Log.getInstance().addLine(msg.toString());
         }
     }
 
@@ -138,9 +158,9 @@ public class SmsDispatcher {
     {
         public void process(AGateway gateway, Message.MessageTypes msgType, InboundMessage msg)
         {
-            if (msgType == Message.MessageTypes.INBOUND) System.out.println(">>> New Inbound message detected from Gateway: " + gateway.getGatewayId());
-            else if (msgType == Message.MessageTypes.STATUSREPORT) System.out.println(">>> New Inbound Status Report message detected from Gateway: " + gateway.getGatewayId());
-            System.out.println(msg);
+            if (msgType == Message.MessageTypes.INBOUND) Log.getInstance().addLine(">>> New Inbound message detected from Gateway: " + gateway.getGatewayId());
+            else if (msgType == Message.MessageTypes.STATUSREPORT) Log.getInstance().addLine(">>> New Inbound Status Report message detected from Gateway: " + gateway.getGatewayId());
+            Log.getInstance().addLine(msg.toString());
         }
     }
 
@@ -148,7 +168,7 @@ public class SmsDispatcher {
     {
         public void process(AGateway gateway, String callerId)
         {
-            System.out.println(">>> New call detected from Gateway: " + gateway.getGatewayId() + " : " + callerId);
+            Log.getInstance().addLine(">>> New call detected from Gateway: " + gateway.getGatewayId() + " : " + callerId);
         }
     }
 
@@ -156,7 +176,7 @@ public class SmsDispatcher {
     {
         public void process(AGateway gateway, AGateway.GatewayStatuses oldStatus, AGateway.GatewayStatuses newStatus)
         {
-            System.out.println(">>> Gateway Status change for " + gateway.getGatewayId() + ", OLD: " + oldStatus + " -> NEW: " + newStatus);
+            Log.getInstance().addLine(">>> Gateway Status change for " + gateway.getGatewayId() + ", OLD: " + oldStatus + " -> NEW: " + newStatus);
         }
     }
 
@@ -164,8 +184,8 @@ public class SmsDispatcher {
     {
         public boolean process(AGateway gateway, InboundMessage msg)
         {
-            System.out.println(">>> Orphaned message part detected from " + gateway.getGatewayId());
-            System.out.println(msg);
+            Log.getInstance().addLine(">>> Orphaned message part detected from " + gateway.getGatewayId());
+            Log.getInstance().addLine(msg.toString());
             // Since we are just testing, return FALSE and keep the orphaned message part.
             return false;
         }
