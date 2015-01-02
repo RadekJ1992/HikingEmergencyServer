@@ -229,7 +229,24 @@ public class DBManager {
         }
     }
 
-    public void setUserNotInEmergency() {}
+    public void setUserNotInEmergency(User user) {
+        Connection c;
+        PreparedStatement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
+            int userID = user.getUserID();
+            String sql = "UPDATE EMERGENCIES SET IS_ACTIVE = 0 WHERE USER_ID = ?;";
+            stmt = c.prepareStatement(sql);
+            stmt.setInt(1, userID);
+            stmt.executeUpdate();
+            stmt.close();
+            c.close();
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            Log.getInstance().addLine( e.getClass().getName() + ": " + e.getMessage() );
+        }
+    }
 
     public boolean isUserInEmergency(User user) {
         Connection c;

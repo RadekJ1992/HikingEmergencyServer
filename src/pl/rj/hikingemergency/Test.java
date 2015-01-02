@@ -7,6 +7,12 @@ package pl.rj.hikingemergency;
 
 import org.smslib.*;
 import org.smslib.modem.SerialModemGateway;
+import pl.rj.hikingemergency.model.*;
+import pl.rj.hikingemergency.sms.SmsDispatcher;
+import pl.rj.hikingemergency.utils.MessagesHandler;
+
+import java.io.IOException;
+
 public class Test
 {
     public void doIt() throws Exception
@@ -53,12 +59,14 @@ public class Test
     public static void main(String args[])
     {
         Test app = new Test();
-        try
-        {
-            app.doIt();
-        }
-        catch (Exception e)
-        {
+        SmsDispatcher.getInstance();
+        try {
+            while (true) {
+                pl.rj.hikingemergency.model.Message m = MessagesHandler.getInstance().getMessage();
+                System.out.println(m.getWholeMessage());
+                Thread.sleep(3000);
+            }
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

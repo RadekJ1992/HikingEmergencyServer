@@ -31,6 +31,7 @@ public final class Constants {
     public static String MOVE_LEFT_ACTION = "move_left";
     public static String ZOOM_IN_ACTION = "zoom_in";
     public static String ZOOM_OUT_ACTION = "zoom_out";
+    public static String DISABLE_EMERGENCY_ACTION = "disable_emergency";
 
     public static String DESTINATION_MAP_LOCATION = "maps" + File.separator + "map.jpg";
 

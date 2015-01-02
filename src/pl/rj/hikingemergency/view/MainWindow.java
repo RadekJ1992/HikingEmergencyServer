@@ -29,6 +29,7 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
     private JButton rightButton;
     private JButton zoomInButton;
     private JButton zoomOutButton;
+    private JButton setUserNotInEmergencyButton;
 
     private JLabel telephoneNumberLabel;
     private JLabel telephoneNumberField;
@@ -184,6 +185,15 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
         allUsersLabel.setVisible(true);
         contentPane.add(allUsersLabel);
 
+
+        setUserNotInEmergencyButton = new JButton("Disable Emergency");
+        setUserNotInEmergencyButton.setBounds(16*Constants.GUI_STEP, (int)(9.75*Constants.GUI_STEP), 3*Constants.GUI_STEP, (int)(0.5*Constants.GUI_STEP));
+        setUserNotInEmergencyButton.setVisible(true);
+        setUserNotInEmergencyButton.setEnabled(false);
+        setUserNotInEmergencyButton.setActionCommand(Constants.DISABLE_EMERGENCY_ACTION);
+        setUserNotInEmergencyButton.addActionListener(this);
+        contentPane.add(setUserNotInEmergencyButton);
+
         Vector<Vector<String>> tableData = getUsersForTable();
         Vector<String> columnNames = new Vector<String>();
         columnNames.add("Phone Number");
@@ -233,6 +243,13 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
         if (e.getActionCommand().equals(Constants.ZOOM_OUT_ACTION)) {
             mapArea.zoomOut();
         }
+        if (e.getActionCommand().equals(Constants.DISABLE_EMERGENCY_ACTION)) {
+            if (getSelectedUser() != null) {
+                DBManager.getInstance().setUserNotInEmergency(getSelectedUser());
+                setUserNotInEmergencyButton.setEnabled(false);
+                refresh();
+            }
+        }
     }
 
     private Vector<Vector<String>> getUsersForTable() {
@@ -256,6 +273,11 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
                 this.telephoneNumberField.setText(user.getPhoneNumber());
                 this.emergencyTelephoneNumberField.setText(user.getEmergencyPhoneNumber() == null ? "-" : user.getEmergencyPhoneNumber());
                 Vector<Location> locations = user.getLocations();
+                if (user.isInEmergency()) {
+                    setUserNotInEmergencyButton.setEnabled(true);
+                } else {
+                    setUserNotInEmergencyButton.setEnabled(false);
+                }
                 if (!locations.isEmpty()) {
                     this.dateField.setText(locations.lastElement().getDate().toString());
                     this.latitudeField.setText("" + locations.lastElement().getLatitude());
