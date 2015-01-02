@@ -87,7 +87,11 @@ public class MapArea extends JLabel implements ThreadCompleteListener {
                         if (MainWindow.getSelectedUser() == null || !user.getPhoneNumber().equals(MainWindow.getSelectedUser().getPhoneNumber())) {
                             m.setSize(MapUtils.Sizes.small);
                         }
-                        m.setColor(MapUtils.Colors.green);
+                        if (user.isInEmergency()) {
+                            m.setColor(MapUtils.Colors.red);
+                        } else {
+                            m.setColor(MapUtils.Colors.green);
+                        }
                         markers.add(m);
                     }
                 }

@@ -196,6 +196,7 @@ public class DBManager {
 
             for (User u : result) {
                 u.setLocations(DBManager.getInstance().getUserLocations(u));
+                u.setInEmergency(isUserInEmergency(u));
             }
         } catch ( Exception e ) {
             e.printStackTrace();
@@ -230,5 +231,29 @@ public class DBManager {
 
     public void setUserNotInEmergency() {}
 
-    public boolean isUserInEmergency() { return false;}
+    public boolean isUserInEmergency(User user) {
+        Connection c;
+        boolean result = false;
+        PreparedStatement preparedStatement = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
+
+            String selectSQL = "SELECT 1 FROM EMERGENCIES WHERE USER_ID = ? AND IS_ACTIVE = 1";
+            preparedStatement = c.prepareStatement(selectSQL);
+            preparedStatement.setInt(1, user.getUserID());
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while ( rs.next() ) {
+                result = true;
+            }
+            rs.close();
+            preparedStatement.close();
+            c.close();
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            Log.getInstance().addLine(e.getClass().getName() + ": " + e.getMessage());
+        }
+        return result;
+    }
 }

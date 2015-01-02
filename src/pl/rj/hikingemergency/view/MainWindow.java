@@ -269,4 +269,24 @@ public class MainWindow extends JFrame implements ActionListener, ListSelectionL
     public static User getSelectedUser() {
         return selectedUser;
     }
+
+    public void refresh() {
+        Vector<Vector<String>> tableData = getUsersForTable();
+        Vector<String> columnNames = new Vector<String>();
+        columnNames.add("Phone Number");
+        columnNames.add("Needs Help?");
+
+        contentPane.remove(allUsersScrollPane);
+
+        this.allUsersTable = new JTable(tableData, columnNames);
+        this.allUsersTable.setVisible(true);
+        this.allUsersTable.getSelectionModel().addListSelectionListener(this);
+
+        this.allUsersScrollPane = new JScrollPane(allUsersTable);
+        this.allUsersScrollPane.setBounds(14*Constants.GUI_STEP, (int)(10.5*Constants.GUI_STEP), 5*Constants.GUI_STEP, 4*Constants.GUI_STEP);
+        this.allUsersScrollPane.setVisible(true);
+        this.contentPane.add(allUsersScrollPane);
+        this.mapArea.refresh();
+        this.repaint();
+    }
 }

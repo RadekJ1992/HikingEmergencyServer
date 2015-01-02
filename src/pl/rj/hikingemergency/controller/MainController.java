@@ -33,6 +33,7 @@ public class MainController implements Observer{
 
     //method to update the observer, used by subject
     public void update() {
-        mainWindow.getMapArea().refresh();
+        mainWindow.refresh();
+        //mainWindow.getMapArea().refresh();
     }
 }

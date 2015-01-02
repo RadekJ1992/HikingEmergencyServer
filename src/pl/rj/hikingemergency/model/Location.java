@@ -11,7 +11,7 @@ public class Location {
     private float longitude;
     private Date date;
 
-    public Location(float longitude, float latitude) {
+    public Location(float latitude, float longitude) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.date = new Date();
@@ -26,7 +26,7 @@ public class Location {
         this.date = date;
     }
 
-    public Location(float longitude, float latitude, Date date) {
+    public Location(float latitude, float longitude, Date date) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.date = date;
