@@ -3,12 +3,26 @@ package pl.rj.hikingemergency.model;
 import java.util.Date;
 
 /**
+ * Klasa przechowująca informacje o lokalizacji użytkownika
+ *
  * Created by radoslawjarzynka on 18.10.2014.
  */
 public class Location {
+    /**
+     * identyfikator lokalizacji w bazie
+     */
     private int id;
+    /**
+     * szerokość geograficzna
+     */
     private float latitude;
+    /**
+     * długość geograficzna
+     */
     private float longitude;
+    /**
+     * data odebrania wiadomości z lokalizacją
+     */
     private Date date;
 
     public Location(float latitude, float longitude) {
@@ -19,7 +33,6 @@ public class Location {
 
 
     public Location(int id, float latitude, float longitude, Date date) {
-
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;

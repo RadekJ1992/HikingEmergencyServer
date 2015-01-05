@@ -1,10 +1,12 @@
-/**
- * created on 16:36:33 15 paź 2014 by Radoslaw Jarzynka
- * 
- * @author Radoslaw Jarzynka
- */
 package pl.rj.hikingemergency.maputils;
 
+/**
+ * Klasa narzędziowa służąca do tworzenia adresów URL żądań wysyłanych do Google Maps API
+ *
+ * created on 16:36:33 15 paź 2014 by Radoslaw Jarzynka
+ *
+ * @author Radoslaw Jarzynka
+ */
 public class GoogleStaticMapsURL {
     
     private StringBuilder URLBuilder;

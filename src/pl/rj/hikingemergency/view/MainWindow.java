@@ -1,8 +1,3 @@
-/**
- * created on 15:49:21 15 paź 2014 by Radoslaw Jarzynka
- * 
- * @author Radoslaw Jarzynka
- */
 package pl.rj.hikingemergency.view;
 
 import pl.rj.hikingemergency.Constants;
@@ -20,6 +15,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
+/**
+ * Klasa widoku głównego okna aplikacji
+ * created on 15:49:21 15 paź 2014 by Radoslaw Jarzynka
+ *
+ * @author Radoslaw Jarzynka
+ */
 public class MainWindow extends JFrame implements ActionListener, ListSelectionListener {
 
     private MapArea mapArea;

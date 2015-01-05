@@ -5,6 +5,7 @@ import pl.rj.hikingemergency.model.Message;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
+ * Klasa służąca do przechowywania wiadomości przychodzących za pomocą protokołu TCP, UDP i wiadomości tekstowych SMS
  * Created by radoslawjarzynka on 09.12.14.
  */
 public class MessagesHandler {

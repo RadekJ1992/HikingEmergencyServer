@@ -3,14 +3,30 @@ package pl.rj.hikingemergency.model;
 import java.util.Vector;
 
 /**
+ * Obiekt przechowujący dane użytkownika
  * Created by radoslawjarzynka on 18.10.2014.
  */
 public class User {
 
+    /**
+     * identyfikator użytkownika w bazie
+     */
     private int userID;
+    /**
+     * wektor lokalizacji użytkownika
+     */
     private Vector<Location> locations;
+    /**
+     * numer telefonu użytkownika
+     */
     private String phoneNumber;
+    /**
+     * numer awaryjny
+     */
     private String emergencyPhoneNumber;
+    /**
+     * flaga informująca o tym, czy użytkownik jest w niebezpieczeństwie
+     */
     private boolean isInEmergency;
 
 

@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.Vector;
 
 /**
+ * Obiekt obsługujący logowanie zdarzeń
+ * Klasa implementuje wzorzec Singletona z leniwą inicjalizacją
  * Created by radoslawjarzynka on 18.10.14.
  */
 public final class Log {
@@ -14,6 +16,10 @@ public final class Log {
     private static volatile Log instance = null;
     private static Vector<String> log;
 
+    /**
+     * metoda pobierająca obiekt singletona
+     * @return
+     */
     public static Log getInstance() {
         if (instance == null) {
             synchronized (Log.class) {
@@ -29,19 +35,24 @@ public final class Log {
         log = new Vector<String>();
     }
 
-    //dodanie linii logu
+    /**
+     * dodanie linii logu
+     */
     public synchronized void addLine(String line) {
         Date curDate = new Date();
         log.add(curDate.toString() + " : " + line);
         System.out.println(line);
     }
 
-    //pobranie danej linijki kodu
+    /**
+     * pobranie danej linijki kodu
+     */
     public String getLine(int lineNo) {
         return log.get(lineNo);
     }
-
-    //zapisanie logu do pliku tekstowego
+    /**
+     * zapisanie logu do pliku tekstowego
+     */
     public synchronized void saveLogToFile() {
         File file = new File("logs" + File.separator + new Date().toString().replace(" ","") + ".log");
         file.getParentFile().mkdirs();
@@ -59,8 +70,9 @@ public final class Log {
             System.err.println("Error: " + e);
         }
     }
-
-    //pobranie calego wektora stringow
+   /**
+    * pobranie calego wektora stringow
+    */
     public Vector<String> getLog() {
         return log;
     }

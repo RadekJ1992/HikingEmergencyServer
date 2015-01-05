@@ -1,10 +1,12 @@
-/**
- * created on 16:57:09 15 paź 2014 by Radoslaw Jarzynka
- * 
- * @author Radoslaw Jarzynka
- */
 package pl.rj.hikingemergency.maputils;
 
+/**
+ * Klasa przechowująca stałe potrzebne do generowania adresów URL żądań Google Maps API
+ *
+ * created on 16:57:09 15 paź 2014 by Radoslaw Jarzynka
+ *
+ * @author Radoslaw Jarzynka
+ */
 public class MapUtils {
 
     public static String GOOGLE_API_KEY = "AIzaSyDDxvU-KXoiTqR9ptg_KpDAo1nRmQDFwFQ";
@@ -15,7 +17,10 @@ public class MapUtils {
     public static String KEY = "&key=";
     public static String SIZE = "&size=";
     public static String ZOOM = "&zoom=";
-    
+
+    /**
+     * Klasa wyliczeniowa zawierająca dostępne formaty map
+     */
     public static enum MapFormats {
         PNG8("png8"),
         PNG32("png32"),
@@ -34,7 +39,10 @@ public class MapUtils {
             return parameter;
         }
     }
-    
+
+    /**
+     * Klasa wyliczeniowa zawierająca typy map
+     */
     public static enum MapTypes {
         ROADMAP("roadmap"),
         SATTELITE("satellite"),
@@ -52,7 +60,10 @@ public class MapUtils {
             return parameter;
         }
     }
-    
+
+    /**
+     * Klasa wyliczeniowa zawierająca skale map
+     */
     public static enum MapScales {
         ONE(1),
         TWO(2);
@@ -65,7 +76,10 @@ public class MapUtils {
             return parameter.toString();
         }
     }
-    
+
+    /**
+     * klasa wyliczeniowa zawierająca kolory map
+     */
     public static enum Colors {
         black, 
         brown, 
@@ -78,7 +92,10 @@ public class MapUtils {
         red, 
         white
     }
-    
+
+    /**
+     * klasa wyliczeniowa zawierająca rozmiary markerów
+     */
     public static enum Sizes {
         tiny, 
         mid, 

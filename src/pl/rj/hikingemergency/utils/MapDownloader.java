@@ -6,6 +6,8 @@ import java.io.*;
 import java.net.URL;
 
 /**
+ * Klasa służąca do pobierania obrazu z mapą korzystając z Google Maps API
+ * Klasa jest wątkiem powiadamiającym obserwujących o ukończeniu pracy
  * Created by radoslawjarzynka on 21.10.14.
  */
 public class MapDownloader extends NotifyingThread {

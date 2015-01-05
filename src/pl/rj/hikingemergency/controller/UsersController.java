@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 /**
+ * Klasa zarządcy użytkowników, implementuje wzorzec obserwowanego, jest wątkiem
  * Created by radoslawjarzynka on 04.11.14.
  */
 public class UsersController implements Subject, Runnable {
@@ -23,9 +24,11 @@ public class UsersController implements Subject, Runnable {
     public void run() {
         try {
             while (doWork) {
+                //odebranie wiadomości
                 Message msg = MessagesHandler.getInstance().getMessage();
                 if (msg != null) {
                     boolean found = false;
+                    //sprawdzenie typu komunikatu i modyfikacja bazy danych na jego podstawie
                     switch (msg.getMessageType()) {
                         case EMG:
                             for (User knownUser : DBManager.getInstance().getAllUsers()) {
@@ -102,18 +105,33 @@ public class UsersController implements Subject, Runnable {
         doWork = true;
     }
 
+    /**
+     * ustawienie flagi uruchomienia wątku
+     * @param doWork
+     */
     public void setWork(boolean doWork) {
         this.doWork = doWork;
     }
 
+    /**
+     * dodanie obserwatora
+     * @param obj
+     */
     public void register(Observer obj) {
         observers.add(obj);
     }
+
+    /**
+     * usunięcie obserwatora
+     * @param obj
+     */
     public void unregister(Observer obj) {
         observers.remove(obj);
     }
 
-    //method to notify observers of change
+    /**
+     * powiadomienie obserwatorów
+     */
     public void notifyObservers() {
         for (Observer obj : observers) {
             obj.update();

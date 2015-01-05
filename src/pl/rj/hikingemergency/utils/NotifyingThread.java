@@ -1,30 +1,40 @@
 package pl.rj.hikingemergency.utils;
 
-/**
- * Created by radoslawjarzynka on 21.10.14.
- */
 
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-//klasa dziedziczaca po klasie Thread bedaca watkiem powiadamiajacym listenerow o zakonczeniu swojego dzialania
+/**
+ * Klasa abstrakcyjna dziedzicząca po klasie Thread. Jest to wątek powiadamiający listenerów o ukończeniu zadania
+ * Created by radoslawjarzynka on 21.10.14.
+ */
 public abstract class NotifyingThread extends Thread {
-    //lista listenerow
+    /**
+     * lista listenerow
+     */
     protected final Set<ThreadCompleteListener> listeners = new CopyOnWriteArraySet<ThreadCompleteListener>();
-    //dodanie listenera
+    /**
+     * dodanie listenera
+     */
     public final void addListener(final ThreadCompleteListener listener) {
         listeners.add(listener);
     }
-    //usuniecie listenera
+    /**
+     * usuniecie listenera
+     */
     public final void removeListener(final ThreadCompleteListener listener) {
         listeners.remove(listener);
     }
-    //powiadomienie listenerow
+    /**
+     * powiadomienie listenerow
+     */
     private final void notifyListeners() {
         for (ThreadCompleteListener listener : listeners) {
             listener.notifyOfThreadComplete(this);
         }
     }
-    //metoda uruchamiajaca watek (jego metode doRun) i powiadamiajaca listenerow po zakonczenu jego dzialania (nawet jak cos sie nie uda i rzuci wyjatek)
+    /**
+     * metoda uruchamiajaca watek (jego metode doRun) i powiadamiajaca listenerow po zakonczenu jego dzialania (nawet jak cos sie nie uda i rzuci wyjatek)
+     */
     @Override
     public final void run() {
         try {
@@ -33,6 +43,8 @@ public abstract class NotifyingThread extends Thread {
             notifyListeners();
         }
     }
-    //doRun - metoda ktorej uzywa sie zamiast metody run()
+    /**
+     * doRun - metoda ktorej uzywa sie zamiast metody run()
+     */
     public abstract void doRun();
 }

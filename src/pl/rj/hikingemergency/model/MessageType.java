@@ -1,6 +1,7 @@
 package pl.rj.hikingemergency.model;
 
 /**
+ * enumeracja przechowywująca typ odebranego komunikatu
  * Created by radoslawjarzynka on 04.11.14.
  */
 public enum MessageType {

@@ -3,8 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="8a2836cb-1ba3-4c6a-8cb2-ff846571c45f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/Constants.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/DBManager.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/DBManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/GoogleStaticMapsURL.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/GoogleStaticMapsURL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Location.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Location.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Log.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Log.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/MainController.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/MainController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MainWindow.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MapArea.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MapArea.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MapDownloader.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MapDownloader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/MapUtils.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/MapUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/Marker.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/Marker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Message.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Message.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/MessageType.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/MessageType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MessagesHandler.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MessagesHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/NotifyingThread.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/NotifyingThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Observer.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Observer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/sms/SmsDispatcher.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/sms/SmsDispatcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Subject.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Subject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/TCPManager.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/TCPManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/ThreadCompleteListener.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/ThreadCompleteListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/User.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/UsersController.java" afterPath="$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/UsersController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HikingEmergencyServer.iws" />
@@ -28,51 +47,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DBManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/DBManager.java">
+      <file leaf-file-name="MapDownloader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MapDownloader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3453" max-vertical-offset="4125">
-              <caret line="240" column="35" selection-start-line="240" selection-start-column="35" selection-end-line="240" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+              <caret line="9" column="70" selection-start-line="9" selection-start-column="70" selection-end-line="9" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapUtils.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/MapUtils.java">
+      <file leaf-file-name="MessagesHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MessagesHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1410">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+              <caret line="7" column="117" selection-start-line="7" selection-start-column="117" selection-end-line="7" selection-end-column="117" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Marker.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/Marker.java">
+      <file leaf-file-name="NotifyingThread.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/NotifyingThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1905">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+              <caret line="46" column="7" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Observer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Observer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+              <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/Constants.java">
+      <file leaf-file-name="Subject.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Subject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="690">
-              <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapArea.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MapArea.java">
+      <file leaf-file-name="ThreadCompleteListener.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/ThreadCompleteListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="1815">
-              <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+              <caret line="3" column="86" selection-start-line="3" selection-start-column="86" selection-end-line="3" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -81,52 +112,28 @@
       <file leaf-file-name="MainWindow.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4642" max-vertical-offset="5220">
-              <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SmsDispatcher.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/sms/SmsDispatcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49107143" vertical-offset="1605" max-vertical-offset="2985">
-              <caret line="129" column="71" selection-start-line="129" selection-start-column="71" selection-end-line="129" selection-end-column="71" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4116" max-vertical-offset="5100">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Message.java">
+      <file leaf-file-name="MapArea.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MapArea.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="771" max-vertical-offset="1755">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650">
+              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Log.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Log.java">
+      <file leaf-file-name="Constants.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1035">
-              <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+            <state vertical-scroll-proportion="1.4481708" vertical-offset="0" max-vertical-offset="1575">
+              <caret line="95" column="30" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -149,40 +156,41 @@
         <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/logger/Logger.java" />
         <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/LogController.java" />
         <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/asd.form" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/GoogleStaticMapsURL.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/NotifyingThread.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/ThreadCompleteListener.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MapDownloader.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/Marker.java" />
         <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Tourist.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Subject.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/MessageType.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Observer.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Log.java" />
         <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/ClientInfo.java" />
         <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/ClientListener.java" />
         <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/ClientSender.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/LocationHandler.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/sms/SmsReader.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/Test.java" />
+        <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/UDPListener.java" />
+        <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/ServerDispatcher.java" />
+        <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/Server.java" />
+        <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientSender.java" />
         <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientInfo.java" />
         <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientListener.java" />
-        <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientSender.java" />
-        <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/Server.java" />
-        <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/UDPListener.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/LocationHandler.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/TCPManager.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MessagesHandler.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/sms/SmsReader.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/User.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/UsersController.java" />
-        <option value="$PROJECT_DIR$/../HikingEmergencyRelay/src/ServerDispatcher.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Message.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/Test.java" />
         <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Location.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MapArea.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/UsersController.java" />
         <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/DBManager.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/Constants.java" />
-        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/TCPManager.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/Marker.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/MapUtils.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/GoogleStaticMapsURL.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Location.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Message.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Log.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/MessageType.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/model/User.java" />
         <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/sms/SmsDispatcher.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MapDownloader.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MessagesHandler.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/NotifyingThread.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Observer.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Subject.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/ThreadCompleteListener.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MapArea.java" />
+        <option value="$PROJECT_DIR$/src/pl/rj/hikingemergency/Constants.java" />
       </list>
     </option>
   </component>
@@ -463,166 +471,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl.rj.hikingemergency" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl.rj.hikingemergency" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl.rj.hikingemergency" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl.rj.hikingemergency" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl.rj.hikingemergency" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl.rj.hikingemergency" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maputils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl.rj.hikingemergency" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl.rj.hikingemergency" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HikingEmergencyServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -699,6 +547,76 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pl.rj.hikingemergency" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pl.rj.hikingemergency" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pl.rj.hikingemergency" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HikingEmergencyServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -732,11 +650,11 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="options.lastSelected" value="settings.github" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HikingEmergencyRelay/bin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="true" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
@@ -928,20 +846,19 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3108911" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11954766" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871288" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871288" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32772276" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1970181" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3069307" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12886049" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30547947" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.146875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -952,6 +869,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871288" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32772276" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -987,14 +905,16 @@
     <MESSAGE value="ogsluga kolejkowania przychodzacych pakietow i wysylanie ich tylko gdy podlaczona jest aplikacja monitorujaca" />
     <MESSAGE value="Poprawienie działania i stabilnosci programu" />
     <MESSAGE value="Dodanie przycisku wyłaczajacego stan emergency u zaznaczonego uzytkownika" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie przycisku wyłaczajacego stan emergency u zaznaczonego uzytkownika" />
+    <MESSAGE value="Dodanie przycisku połaczenia sie z modemem 3G (i rozlaczenia sie), odbieranie SMSow działa aż miło" />
+    <MESSAGE value="Dodanie komentarzy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie komentarzy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/UsersController.java</url>
-          <line>33</line>
+          <line>36</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
@@ -1007,28 +927,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/TCPManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="2040">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/GoogleStaticMapsURL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="1050">
-          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/Marker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1905">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="750">
@@ -1134,20 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/NotifyingThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42769858" vertical-offset="0" max-vertical-offset="982">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/ThreadCompleteListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.091649696" vertical-offset="0" max-vertical-offset="982">
-          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Documents/INŻYNIERKA/smslib-3.5.4.jar!/org/smslib/modem/ModemGateway.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.26955602" vertical-offset="330" max-vertical-offset="2400">
@@ -1162,27 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MapDownloader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/MessageType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Subject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/src.zip!/java/net/ServerSocket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.082159" vertical-offset="10193" max-vertical-offset="13530">
@@ -1190,154 +1053,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1527495" vertical-offset="0" max-vertical-offset="982">
-          <caret line="15" column="97" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1395">
-          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="1650">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="1155">
-          <caret line="18" column="94" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/ServerDispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Documents/INŻYNIERKA/smslib-3.5.4.jar!/org/smslib/Service.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34697217" vertical-offset="268" max-vertical-offset="3225">
           <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/UDPListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MessagesHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/UsersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="183" max-vertical-offset="1785">
-          <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/TCPManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="873" max-vertical-offset="1890">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/GoogleStaticMapsURL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="412" max-vertical-offset="990">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/MapUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/Marker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1845">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MapArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="817" max-vertical-offset="1575">
-          <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1177" max-vertical-offset="1755">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1035">
-          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1349,39 +1068,311 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/Constants.java">
+    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/ServerDispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="690">
-          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.23295455" vertical-offset="1501" max-vertical-offset="2205">
+          <caret line="112" column="65" selection-start-line="112" selection-start-column="65" selection-end-line="112" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/UDPListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42613637" vertical-offset="0" max-vertical-offset="704">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.021306818" vertical-offset="870" max-vertical-offset="1710">
+          <caret line="65" column="56" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1903409" vertical-offset="706" max-vertical-offset="1410">
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08547009" vertical-offset="0" max-vertical-offset="810">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HikingEmergencyRelay/src/RelayClientInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08547009" vertical-offset="0" max-vertical-offset="702">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/DBManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3198" max-vertical-offset="4125">
-          <caret line="240" column="35" selection-start-line="240" selection-start-column="35" selection-end-line="240" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3945" max-vertical-offset="4785">
+          <caret line="290" column="82" selection-start-line="290" selection-start-column="82" selection-end-line="290" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33236575" vertical-offset="896" max-vertical-offset="46890">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/manager/TCPManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23076923" vertical-offset="1518" max-vertical-offset="2220">
+          <caret line="122" column="44" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7863248" vertical-offset="33" max-vertical-offset="735">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/controller/UsersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.508547" vertical-offset="1113" max-vertical-offset="2055">
+          <caret line="108" column="42" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/Marker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2055">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/GoogleStaticMapsURL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1080">
+          <caret line="3" column="89" selection-start-line="3" selection-start-column="89" selection-end-line="3" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/maputils/MapUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0512822" vertical-offset="0" max-vertical-offset="1665">
+          <caret line="96" column="55" selection-start-line="96" selection-start-column="55" selection-end-line="96" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27494907" vertical-offset="75" max-vertical-offset="1275">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.36659878" vertical-offset="1065" max-vertical-offset="2085">
+          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8319756" vertical-offset="218" max-vertical-offset="1215">
+          <caret line="73" column="29" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.23727088" vertical-offset="638" max-vertical-offset="1620">
+          <caret line="27" column="72" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/model/MessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.045824848" vertical-offset="0" max-vertical-offset="982">
+          <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MODULES/mdl-HikingEmergencyServer">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-HikingEmergencyServer</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="118.0" y="14.5" />
+          <SelectedNodes />
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/pl.rj.hikingemergency">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>pl.rj.hikingemergency</OriginalElement>
+          <nodes>
+            <node x="" y="">pl.rj.hikingemergency.model.Location</node>
+            <node x="" y="">pl.rj.hikingemergency.model.Message</node>
+            <node x="" y="">pl.rj.hikingemergency.utils.Observer</node>
+            <node x="" y="">pl.rj.hikingemergency.maputils.MapUtils</node>
+            <node x="" y="">pl.rj.hikingemergency.utils.MessagesHandler</node>
+            <node x="" y="">pl.rj.hikingemergency.model.MessageType</node>
+            <node x="" y="">pl.rj.hikingemergency.manager.TCPManager.Writer</node>
+            <node x="" y="">pl.rj.hikingemergency.Test</node>
+            <node x="" y="">pl.rj.hikingemergency.utils.ThreadCompleteListener</node>
+            <node x="" y="">pl.rj.hikingemergency.sms.SmsDispatcher.OutboundNotification</node>
+            <node x="" y="">pl.rj.hikingemergency.view.MapArea</node>
+            <node x="" y="">pl.rj.hikingemergency.maputils.MapUtils.MapScales</node>
+            <node x="" y="">pl.rj.hikingemergency.maputils.Marker</node>
+            <node x="" y="">pl.rj.hikingemergency.Constants</node>
+            <node x="" y="">pl.rj.hikingemergency.model.Log</node>
+            <node x="" y="">pl.rj.hikingemergency.maputils.MapUtils.MapFormats</node>
+            <node x="" y="">pl.rj.hikingemergency.Test.OutboundNotification</node>
+            <node x="" y="">pl.rj.hikingemergency.sms.SmsDispatcher.InboundNotification</node>
+            <node x="" y="">pl.rj.hikingemergency.manager.TCPManager</node>
+            <node x="" y="">pl.rj.hikingemergency.model.User</node>
+            <node x="" y="">pl.rj.hikingemergency.sms.SmsDispatcher.CallNotification</node>
+            <node x="" y="">pl.rj.hikingemergency.maputils.MapUtils.MapTypes</node>
+            <node x="" y="">pl.rj.hikingemergency.maputils.MapUtils.Sizes</node>
+            <node x="" y="">pl.rj.hikingemergency.sms.SmsDispatcher.GatewayStatusNotification</node>
+            <node x="" y="">pl.rj.hikingemergency.controller.MainController</node>
+            <node x="" y="">pl.rj.hikingemergency.manager.DBManager</node>
+            <node x="" y="">pl.rj.hikingemergency.sms.SmsDispatcher.MessagesReader</node>
+            <node x="" y="">pl.rj.hikingemergency.view.MainWindow</node>
+            <node x="" y="">pl.rj.hikingemergency.maputils.GoogleStaticMapsURL</node>
+            <node x="" y="">pl.rj.hikingemergency.sms.SmsDispatcher.OrphanedMessageNotification</node>
+            <node x="" y="">pl.rj.hikingemergency.sms.SmsDispatcher</node>
+            <node x="" y="">pl.rj.hikingemergency.manager.TCPManager.Reader</node>
+            <node x="" y="">pl.rj.hikingemergency.controller.UsersController</node>
+            <node x="" y="">pl.rj.hikingemergency.utils.NotifyingThread</node>
+            <node x="" y="">pl.rj.hikingemergency.maputils.MapUtils.Colors</node>
+            <node x="" y="">pl.rj.hikingemergency.utils.MapDownloader</node>
+            <node x="" y="">pl.rj.hikingemergency.utils.Subject</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="732.9999999999995" y="725.9999999999998" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Inner Classes</Category>
+            <Category>Methods</Category>
+            <Category>Constructors</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/sms/SmsDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19207317" vertical-offset="2106" max-vertical-offset="3090">
+          <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MapDownloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <caret line="9" column="70" selection-start-line="9" selection-start-column="70" selection-end-line="9" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/MessagesHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="7" column="117" selection-start-line="7" selection-start-column="117" selection-end-line="7" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/NotifyingThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <caret line="46" column="7" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/Subject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/utils/ThreadCompleteListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+          <caret line="3" column="86" selection-start-line="3" selection-start-column="86" selection-end-line="3" selection-end-column="86" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4642" max-vertical-offset="5220">
-          <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="4116" max-vertical-offset="5100">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/sms/SmsDispatcher.java">
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/view/MapArea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49107143" vertical-offset="1605" max-vertical-offset="2985">
-          <caret line="129" column="71" selection-start-line="129" selection-start-column="71" selection-end-line="129" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650">
+          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/rj/hikingemergency/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4481708" vertical-offset="0" max-vertical-offset="1575">
+          <caret line="95" column="30" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

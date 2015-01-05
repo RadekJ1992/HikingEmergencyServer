@@ -5,16 +5,17 @@ import pl.rj.hikingemergency.utils.Observer;
 import pl.rj.hikingemergency.view.MainWindow;
 
 /**
+ * Główny kontroler aplikacji uruchamiający wątki odbierania wiadomości, zarządcę użytkowników i tworzący widok okna aplikacji
+ *
+ * Implementuje wzorzec projektowy obserwatora
  * Created by radoslawjarzynka on 04.11.14.
  */
 public class MainController implements Observer{
 
-    //main application window
+    //główne okno aplikacji
     private MainWindow mainWindow;
-
+    //zarządca użytkowników
     private UsersController usersController;
-
-
 
     public MainController() {
         TCPManager.getInstance();
@@ -27,13 +28,18 @@ public class MainController implements Observer{
 
     }
 
+    /**
+     * Punkt wejścia aplikacji
+     * @param args
+     */
     public static void main(String[] args) {
         MainController mainController = new MainController();
     }
 
-    //method to update the observer, used by subject
+    /**
+     * metoda uruchamiana przez obiekt obserwowany w celu powiadomienia obserwatora
+     */
     public void update() {
         mainWindow.refresh();
-        //mainWindow.getMapArea().refresh();
     }
 }

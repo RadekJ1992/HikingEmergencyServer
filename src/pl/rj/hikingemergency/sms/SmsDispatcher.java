@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Klasa obsługująca obieranie i wysyłanie wiadomości SMS
+ * Obiekt singletona nie posiada leniwej inicjalizacji
  * Created by radoslawjarzynka on 09.12.14.
  */
 public class SmsDispatcher {
@@ -40,7 +42,6 @@ public class SmsDispatcher {
 
     private SmsDispatcher() {
         messagesList = new ArrayList<InboundMessage>();
-        //connect();
         messagesReader = new MessagesReader();
         messagesReaderThread = new Thread(messagesReader);
         messagesReaderThread.start();
@@ -50,6 +51,9 @@ public class SmsDispatcher {
         return messagesList;
     }
 
+    /**
+     * połączenie z modemem 3G
+     */
     public void connect() {
         try {
             outboundNotification = new OutboundNotification();
@@ -80,6 +84,9 @@ public class SmsDispatcher {
         }
     }
 
+    /**
+     * rozłączenie z modemem 3G
+     */
     public void disconnect() {
         try {
             Service.getInstance().stopService();
@@ -94,6 +101,11 @@ public class SmsDispatcher {
         }
     }
 
+    /**
+     * wysłanie wiadomości tekstowej
+     * @param number
+     * @param message
+     */
     public void sendMessage(String number, String message) {
         if (Service.getInstance().getServiceStatus().equals(Service.ServiceStatus.STARTED)) {
             OutboundMessage msg = new OutboundMessage(number, message);
@@ -114,6 +126,9 @@ public class SmsDispatcher {
         }
     }
 
+    /**
+     * klasa wewnętrzna odczytująca wiadomości
+     */
     private class MessagesReader implements Runnable {
         @Override
         public void run() {

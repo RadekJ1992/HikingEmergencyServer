@@ -1,8 +1,3 @@
-/**
- * created on 13:47:03 18 paź 2014 by Radoslaw Jarzynka
- * 
- * @author Radoslaw Jarzynka
- */
 package pl.rj.hikingemergency.view;
 
 import pl.rj.hikingemergency.Constants;
@@ -19,6 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * Klasa widoku fragmentu mapy w oknie aplikacji
+ * created on 13:47:03 18 paź 2014 by Radoslaw Jarzynka
+ *
+ * @author Radoslaw Jarzynka
+ */
 public class MapArea extends JLabel implements ThreadCompleteListener {
 
     private double centerLatitude;

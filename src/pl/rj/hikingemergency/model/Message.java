@@ -1,19 +1,41 @@
 package pl.rj.hikingemergency.model;
 
 /**
+ * Klasa przechowująca informację o przychodzącej wiadomości, niezależnie od tego, czy wiadomość została dostarczona
+ * za pomocą protokołu TCP, UDP czy też za pomocą wiadomości SMS
  * Created by radoslawjarzynka on 04.11.14.
  */
 public class Message {
 
+    /**
+     * enumeracja określająca typ wiadomości
+     */
     private MessageType messageType;
-
+    /**
+     * Ciąg znaków zawierający całą treść wiadomości
+     */
     private String wholeMessage;
-    private String myPhone; //numer zglaszajacego
-    private String emgPhone; //numer osoby odpowiedzialnej
+    /**
+     * numer telefonu osoby wysyłającej zgłoszenie
+     */
+    private String myPhone;
+    /**
+     * numer telefonu, na który ma się zgłosić dyspozytor
+     */
+    private String emgPhone;
+    /**
+     * szerokość geograficzna przesłana w wiadomości
+     */
     private float latitude;
+    /**
+     * długość geograficzna przesłana w wiadomości
+     */
     private float longitude;
 
-
+    /**
+     * konstruktor przyjmujący całą treść wiadomości i tworzący na jej podstawie obiekt Message
+     * @param str
+     */
     public Message(String str) {
         try {
             String[] msgParts = str.split(";");

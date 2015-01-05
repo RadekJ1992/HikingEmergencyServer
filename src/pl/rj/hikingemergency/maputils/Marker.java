@@ -1,10 +1,15 @@
-/**
- * created on 17:25:20 15 paź 2014 by Radoslaw Jarzynka
- * 
- * @author Radoslaw Jarzynka
- */
 package pl.rj.hikingemergency.maputils;
 
+/**
+ * Klasa przechowująca informacje o markerach wyświetlanych na mapach generowanych przez Google Maps API
+ *
+ * Na podstawie parametrów dostarczonych przez aplikację tworzy ona
+ * fragment adresu URL żądania wysyłanego do API odzwierciedlającego dany marker
+ *
+ * created on 17:25:20 15 paź 2014 by Radoslaw Jarzynka
+ *
+ * @author Radoslaw Jarzynka
+ */
 public class Marker {
     
 
@@ -86,6 +91,11 @@ public class Marker {
     public void setLabel(char label) {
         this.label = label;
     }
+
+    /**
+     * Pobranie fragmentu URL odpowiedzialnego za dany marker
+     * @return
+     */
     public String getURL() {
         boolean argumentExists = false;
         if (color != null) {

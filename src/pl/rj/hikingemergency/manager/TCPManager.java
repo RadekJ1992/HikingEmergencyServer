@@ -13,6 +13,8 @@ import java.net.Socket;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
+ * Klasa zarządzająca połączeniem TCP z przekaźnikiem
+ * Klasa implementuje wzorzec singletona bez leniwej inicjalizacji
  * Created by radoslawjarzynka on 29.10.14.
  */
 public class TCPManager {
@@ -30,6 +32,10 @@ public class TCPManager {
 
     private static volatile TCPManager instance = new TCPManager();
 
+    /**
+     * getter obiektu singletona
+     * @return
+     */
     public static TCPManager getInstance() {
         return instance;
     }
@@ -38,10 +44,17 @@ public class TCPManager {
         Connect();
     }
 
+    /**
+     * wysłanie wiadomości do przekaźnika
+     * @param str
+     */
     public void SendMessage(String str) {
         outgoingMessages.add(str);
     }
 
+    /**
+     * Nawiązanie połączenia TCP z przekaźnikiem
+     */
     private void Connect() {
         try {
             socket = new Socket(Constants.SERVER_IP, Constants.SERVER_PORT);
@@ -59,6 +72,9 @@ public class TCPManager {
         }
     }
 
+    /**
+     * rozłączenie się z przekaźnikiem
+     */
     private void Disconnect() {
         reader.setWork(false);
         writer.setWork(false);
@@ -69,6 +85,9 @@ public class TCPManager {
         writer = null;
     }
 
+    /**
+     * klasa wewnętrzna odczytująca przychodzące informacje
+     */
     private class Reader implements Runnable {
         private boolean doWork;
         @Override
@@ -100,6 +119,9 @@ public class TCPManager {
         }
     }
 
+    /**
+     * Klasa wysyłająca komunikaty na serwer
+     */
     private class Writer implements Runnable {
         private boolean doWork;
         @Override

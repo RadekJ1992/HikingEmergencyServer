@@ -10,6 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.Vector;
 
 /**
+ * DAO obsługujące połączenie aplikacji z bazą danych i modyfikację jej zawartości
+ *
+ * Klasa implementuje wzorzec singletona bez leniwej inicjalizacji, obiekt tworzony jest w momencie tworzenia całej klasy
  * Created by radoslawjarzynka on 29.10.14.
  */
 public class DBManager {
@@ -23,6 +26,7 @@ public class DBManager {
         Statement stmt2;
         Statement stmt3;
         try {
+            //utworzenie bazy danych
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection(Constants.DATABASE_LOCATION);
             Log.getInstance().addLine("Opened database successfully");
@@ -64,10 +68,19 @@ public class DBManager {
         System.out.println("Tables created successfully");
     }
 
+    /**
+     * Getter instancji singletona
+     * @return
+     */
     public static DBManager getInstance() {
         return instance;
     }
 
+    /**
+     * wstawienie lokalizacji użytkownika
+     * @param user
+     * @param location
+     */
     public void insertUserLocation(User user, Location location) {
         Connection c;
         PreparedStatement stmt = null;
@@ -94,6 +107,11 @@ public class DBManager {
         }
     }
 
+    /**
+     * Pobranie wszystkich lokalizacji użytkownika
+     * @param user
+     * @return
+     */
     public Vector<Location> getUserLocations(User user) {
         Connection c;
         PreparedStatement preparedStatement = null;
@@ -125,6 +143,10 @@ public class DBManager {
         return result;
     }
 
+    /**
+     * Dodanie nowego użytkownika
+     * @param user
+     */
     public void addNewUser(User user) {
         Connection c;
         PreparedStatement preparedStatement = null;
@@ -147,6 +169,10 @@ public class DBManager {
         }
     }
 
+    /**
+     * Ustawienie identyfikatora użytkownika
+     * @param user
+     */
     public void setUserID(User user) {
         Connection c;
         PreparedStatement preparedStatement = null;
@@ -173,6 +199,10 @@ public class DBManager {
         }
     }
 
+    /**
+     * Pobranie listy wszystkich użytkowników
+     * @return
+     */
     public Vector<User> getAllUsers() {
         Connection c;
         Vector<User> result = new Vector<User>();
@@ -205,6 +235,11 @@ public class DBManager {
         return result;
     }
 
+    /**
+     * Ustawienie użytkownikowi flagi informującej o tym, że zgłosił sytuację niebezpieczeństwa
+     * @param user
+     * @param location
+     */
     public void setUserInEmergency(User user, Location location) {
         insertUserLocation(user, location);
         Vector<Location> locations = getUserLocations(user);
@@ -229,6 +264,10 @@ public class DBManager {
         }
     }
 
+    /**
+     * ustawienie flagi, że użytkownik nie jest w sytuacji zagrożenia
+     * @param user
+     */
     public void setUserNotInEmergency(User user) {
         Connection c;
         PreparedStatement stmt = null;
@@ -248,6 +287,11 @@ public class DBManager {
         }
     }
 
+    /**
+     * Pobranie informacji o tym, czy użytkownik jest w sytuacji niebezpieczeństwa
+     * @param user
+     * @return
+     */
     public boolean isUserInEmergency(User user) {
         Connection c;
         boolean result = false;
